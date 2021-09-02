@@ -64,136 +64,159 @@ class _FavoriteState extends State<Favorite> {
                                   ],
                                   borderRadius: BorderRadius.circular(10)
                               ),
-                              child: Column(
+                              child: Stack(
                                 children: [
-                                  Container(
-                                    height: 100,
-                                    decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                            image: AssetImage("assets/placeholder/doctor.png"),
-                                            fit: BoxFit.cover
+                                  Column(
+                                    children: [
+                                      Container(
+                                        height: 100,
+                                        decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                                image: AssetImage("assets/placeholder/doctor.png"),
+                                                fit: BoxFit.cover
+                                            ),
+                                            borderRadius: BorderRadius.only(
+                                                topLeft: Radius.circular(10),
+                                                topRight: Radius.circular(10)
+                                            )
                                         ),
-                                        borderRadius: BorderRadius.only(
-                                            topLeft: Radius.circular(10),
-                                            topRight: Radius.circular(10)
-                                        )
-                                    ),
-                                  ),
-                                  Container(
-                                    child: Column(
-                                      children: [
-                                        Text("Dr. Navida Navara",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 15),),
-                                        Text("Psychologist",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w300,fontSize: 10),),
-                                        SizedBox(width: 5,),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.center,
+                                      ),
+                                      Container(
+                                        child: Column(
                                           children: [
-                                            RatingBar(
-                                              initialRating: 4,
-                                              direction: Axis.horizontal,
-                                              allowHalfRating: true,
-                                              itemCount: 5,
-                                              ratingWidget: RatingWidget(
-                                                full: Icon(Icons.star,color: COLOR_YELLOW),
-                                                half: Icon(Icons.star_half,color: COLOR_YELLOW),
-                                                empty:Icon(Icons.star_border,color: COLOR_YELLOW,),
-                                              ),
-                                              ignoreGestures: true,
-                                              itemSize: 15,
-                                              itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
-                                              onRatingUpdate: (rating) {
-                                                print(rating);
-                                              },
+                                            Text("Dr. Navida Navara",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 15),),
+                                            Text("Psychologist",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w300,fontSize: 10),),
+                                            SizedBox(width: 5,),
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                RatingBar(
+                                                  initialRating: 4,
+                                                  direction: Axis.horizontal,
+                                                  allowHalfRating: true,
+                                                  itemCount: 5,
+                                                  ratingWidget: RatingWidget(
+                                                    full: Icon(Icons.star,color: COLOR_YELLOW),
+                                                    half: Icon(Icons.star_half,color: COLOR_YELLOW),
+                                                    empty:Icon(Icons.star_border,color: COLOR_YELLOW,),
+                                                  ),
+                                                  ignoreGestures: true,
+                                                  itemSize: 15,
+                                                  itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
+                                                  onRatingUpdate: (rating) {
+                                                    print(rating);
+                                                  },
+                                                ),
+                                                SizedBox(width: 5,),
+                                                Text("4.9",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 10),),
+
+
+                                              ],
                                             ),
                                             SizedBox(width: 5,),
-                                            Text("4.9",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 10),),
-
+                                            Text("\$20/hr",style: TextStyle(color: primary,fontWeight: FontWeight.w500,fontSize: 12),),
 
                                           ],
                                         ),
-                                        SizedBox(width: 5,),
-                                        Text("\$20/hr",style: TextStyle(color: primary,fontWeight: FontWeight.w500,fontSize: 12),),
-
-                                      ],
+                                      )
+                                    ],
+                                  ),
+                                  Align(
+                                    alignment: Alignment.topRight,
+                                    child: Padding(
+                                      padding: EdgeInsets.all(5),
+                                      child: Icon(Icons.favorite,color: Colors.red,),
                                     ),
                                   )
                                 ],
-                              ),
+                              )
                             ),
                           ),
                           Expanded(
                             flex: 1,
                             child: Container(
-                              margin: EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.5),
-                                      spreadRadius: 2,
-                                      blurRadius: 2,
-                                      offset: Offset(0, 2), // changes position of shadow
-                                    ),
-                                  ],
-                                  borderRadius: BorderRadius.circular(10)
-                              ),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    height: 100,
-                                    decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                            image: AssetImage("assets/placeholder/doctor.png"),
-                                            fit: BoxFit.cover
-                                        ),
-                                        borderRadius: BorderRadius.only(
-                                            topLeft: Radius.circular(10),
-                                            topRight: Radius.circular(10)
-                                        )
-                                    ),
-                                  ),
-                                  Container(
-                                    child: Column(
+                                margin: EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.5),
+                                        spreadRadius: 2,
+                                        blurRadius: 2,
+                                        offset: Offset(0, 2), // changes position of shadow
+                                      ),
+                                    ],
+                                    borderRadius: BorderRadius.circular(10)
+                                ),
+                                child: Stack(
+                                  children: [
+                                    Column(
                                       children: [
-                                        Text("Dr. Navida Navara",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 15),),
-                                        Text("Psychologist",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w300,fontSize: 10),),
-                                        SizedBox(width: 5,),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          children: [
-                                            RatingBar(
-                                              initialRating: 4,
-                                              direction: Axis.horizontal,
-                                              allowHalfRating: true,
-                                              itemCount: 5,
-                                              ratingWidget: RatingWidget(
-                                                full: Icon(Icons.star,color: COLOR_YELLOW),
-                                                half: Icon(Icons.star_half,color: COLOR_YELLOW),
-                                                empty:Icon(Icons.star_border,color: COLOR_YELLOW,),
+                                        Container(
+                                          height: 100,
+                                          decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                  image: AssetImage("assets/placeholder/doctor.png"),
+                                                  fit: BoxFit.cover
                                               ),
-                                              ignoreGestures: true,
-                                              itemSize: 15,
-                                              itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
-                                              onRatingUpdate: (rating) {
-                                                print(rating);
-                                              },
-                                            ),
-                                            SizedBox(width: 5,),
-                                            Text("4.9",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 10),),
-
-
-                                          ],
+                                              borderRadius: BorderRadius.only(
+                                                  topLeft: Radius.circular(10),
+                                                  topRight: Radius.circular(10)
+                                              )
+                                          ),
                                         ),
-                                        SizedBox(width: 5,),
-                                        Text("\$20/hr",style: TextStyle(color: primary,fontWeight: FontWeight.w500,fontSize: 12),),
+                                        Container(
+                                          child: Column(
+                                            children: [
+                                              Text("Dr. Navida Navara",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 15),),
+                                              Text("Psychologist",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w300,fontSize: 10),),
+                                              SizedBox(width: 5,),
+                                              Row(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  RatingBar(
+                                                    initialRating: 4,
+                                                    direction: Axis.horizontal,
+                                                    allowHalfRating: true,
+                                                    itemCount: 5,
+                                                    ratingWidget: RatingWidget(
+                                                      full: Icon(Icons.star,color: COLOR_YELLOW),
+                                                      half: Icon(Icons.star_half,color: COLOR_YELLOW),
+                                                      empty:Icon(Icons.star_border,color: COLOR_YELLOW,),
+                                                    ),
+                                                    ignoreGestures: true,
+                                                    itemSize: 15,
+                                                    itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
+                                                    onRatingUpdate: (rating) {
+                                                      print(rating);
+                                                    },
+                                                  ),
+                                                  SizedBox(width: 5,),
+                                                  Text("4.9",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 10),),
 
+
+                                                ],
+                                              ),
+                                              SizedBox(width: 5,),
+                                              Text("\$20/hr",style: TextStyle(color: primary,fontWeight: FontWeight.w500,fontSize: 12),),
+
+                                            ],
+                                          ),
+                                        )
                                       ],
                                     ),
-                                  )
-                                ],
-                              ),
+                                    Align(
+                                      alignment: Alignment.topRight,
+                                      child: Padding(
+                                        padding: EdgeInsets.all(5),
+                                        child: Icon(Icons.favorite,color: Colors.red,),
+                                      ),
+                                    )
+                                  ],
+                                )
                             ),
                           ),
+
                         ],
                       )
                     ],

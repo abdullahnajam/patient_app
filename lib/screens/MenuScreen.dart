@@ -12,6 +12,8 @@ import 'package:patient_app/screens/favorite.dart';
 import 'package:patient_app/screens/profile.dart';
 import 'package:patient_app/utils/constants.dart';
 
+import 'editProfile.dart';
+
 class MenuScreen extends StatefulWidget {
   @override
   _MenuScreenState createState() => _MenuScreenState();
@@ -171,7 +173,7 @@ class _MenuScreenState extends State<MenuScreen> {
                                     fontWeight: FontWeight.w300),
                               ),
                               onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DoctorProfile()));
+                                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => EditProfile()));
 
                               },
                               child: const Text('Profile'),
@@ -185,7 +187,10 @@ class _MenuScreenState extends State<MenuScreen> {
                                     color: COLOR_BLACK,
                                     fontWeight: FontWeight.w300),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => EditProfile()));
+
+                              },
                               child: const Text('Edit Profile'),
                             ),
                             TextButton(

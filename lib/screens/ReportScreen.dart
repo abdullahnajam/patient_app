@@ -8,10 +8,11 @@ class ReportScreen extends StatefulWidget {
   @override
   _ReportScreenState createState() => _ReportScreenState();
 }
-
+enum issue { change, report, other }
 class _ReportScreenState extends State<ReportScreen> {
   Color _backgroundColor = COLOR_WHITE;
   String _verticalGroupValue = "Pending";
+  issue _issue = issue.change;
 
   List<String> _status = ["Change profile details", "Report a Therapist", "other issues"];
 
@@ -117,19 +118,64 @@ class _ReportScreenState extends State<ReportScreen> {
                         fontSize: 16),
                   ),
 
+
                   Card(
                     child: Padding(
                       padding: EdgeInsets.all(8.0),
-                      child: RadioGroup<String>.builder(
-                        groupValue: _verticalGroupValue,
-                        onChanged: (value) => setState(() {
-                          _verticalGroupValue = value!;
-                        }),
-                        items: _status,
-                        itemBuilder: (item) => RadioButtonBuilder(
-                          item,
-                        ),
-                        activeColor: COLOR_DARK_PURPLE,
+                      child:Column(
+                        children: [
+                          Row(
+                            children: [
+                              new Radio(
+                                value: issue.change,
+                                groupValue: _issue,
+                                onChanged: (issue? value) {
+                                  setState(() {
+                                    _issue = value!;
+                                  });
+                                },
+                              ),
+                              new Text(
+                                _status[0],
+                                style: new TextStyle(color: Colors.black,fontWeight: FontWeight.w400,fontSize: 16),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              new Radio(
+                                value: issue.report,
+                                groupValue: _issue,
+                                onChanged: (issue? value) {
+                                  setState(() {
+                                    _issue = value!;
+                                  });
+                                },
+                              ),
+                              new Text(
+                                _status[1],
+                                style: new TextStyle(color: Colors.black,fontWeight: FontWeight.w400,fontSize: 16),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              new Radio(
+                                value: issue.other,
+                                groupValue: _issue,
+                                onChanged: (issue? value) {
+                                  setState(() {
+                                    _issue = value!;
+                                  });
+                                },
+                              ),
+                              new Text(
+                                _status[2],
+                                style: new TextStyle(color: Colors.black,fontWeight: FontWeight.w400,fontSize: 16),
+                              ),
+                            ],
+                          )
+                        ],
                       )
                     ),
                   ),
