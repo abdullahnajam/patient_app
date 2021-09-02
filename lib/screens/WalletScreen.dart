@@ -84,8 +84,8 @@ class _WalletScreenState extends State<WalletScreen> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text("Balance",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 18),),
-                                Text("\$1200",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 16),),
+                                Text("Balance",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 18),),
+                                Text("\$1200",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 16),),
 
                               ],
                             ),
@@ -101,8 +101,8 @@ class _WalletScreenState extends State<WalletScreen> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text("Points",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 18),),
-                                Text("1920",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 16),),
+                                Text("Points",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 18),),
+                                Text("1920",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 16),),
 
                               ],
                             ),

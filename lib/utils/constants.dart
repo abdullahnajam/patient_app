@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 const COLOR_LIGHT_PURPLE = Color(0xffb845eb);
 
 const primary= Color(0xff8e4dea);
-const blue=Color(0xff3738a2);
+const blue=Color(0xff3639a4);
 const String placeHolderLandScape='assets/placeholder/landscape.jpg';
-const colorGardient=LinearGradient(
+const colorGradient=LinearGradient(
   begin: Alignment.topCenter,
   end: Alignment.bottomCenter,
   colors: [
@@ -16,7 +16,7 @@ const colorGardient=LinearGradient(
 
 const COLOR_DARK_PURPLE = Color(0xff701b97);
 
-const COLOR_LIGHT_BLUE = Color(0xff3639a4);
+const COLOR_LIGHT_BLUE = Color(0xff6b5cfd);
 
 const COLOR_DARK_BLUE = Color(0xff3639a4);
 
@@ -52,7 +52,7 @@ const TextTheme TEXT_THEME_DEFAULT = TextTheme(
   bodyText2: TextStyle(
       color: COLOR_LIGHT_PURPLE, fontWeight: FontWeight.w500, fontSize: 14, height: 1.5),
   subtitle1: TextStyle(
-      color: COLOR_LIGHT_PURPLE, fontWeight: FontWeight.w400, fontSize: 12),
+      color: COLOR_LIGHT_PURPLE, fontWeight: FontWeight.w300, fontSize: 12),
   subtitle2: TextStyle(
-      color: COLOR_LIGHT_PURPLE, fontWeight: FontWeight.w400, fontSize: 12),
+      color: COLOR_LIGHT_PURPLE, fontWeight: FontWeight.w300, fontSize: 12),
 );

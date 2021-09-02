@@ -22,7 +22,7 @@ class _ChatScreenState extends State<ChatScreen> {
             Container(
               padding: EdgeInsets.all(5),
               decoration: BoxDecoration(
-                gradient: colorGardient,
+                gradient: colorGradient,
                 shape: BoxShape.circle
               ),
               child: Icon(Icons.add,color: Colors.white,size: 35,),
@@ -165,7 +165,7 @@ class _ChatScreenState extends State<ChatScreen> {
                               height: 50,
                               width: width*0.7,
                               decoration: BoxDecoration(
-                                  gradient: colorGardient,
+                                  gradient: colorGradient,
                                   borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(20),
                                       topRight: Radius.circular(20),

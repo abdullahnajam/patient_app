@@ -1,8 +1,7 @@
 import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'constants.dart';
+import 'package:patient_app/utils/constants.dart';
 
 class BookAppointment extends StatefulWidget {
   const BookAppointment({Key? key}) : super(key: key);
@@ -21,7 +20,12 @@ class _BookAppointmentState extends State<BookAppointment> {
       body: Stack(
         children: [
           Container(
-            color: primary,
+            decoration: BoxDecoration(
+                gradient: LinearGradient(colors: [COLOR_LIGHT_PURPLE, COLOR_LIGHT_BLUE],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                )
+            ),
             height: MediaQuery.of(context).size.height*0.3,
             padding: EdgeInsets.only(
               top:MediaQuery.of(context).size.height*0.08,
@@ -66,7 +70,7 @@ class _BookAppointmentState extends State<BookAppointment> {
             child: ListView(
               children: [
                 Container(
-                  margin: EdgeInsets.all(MediaQuery.of(context).size.width*0.05),
+                  margin: EdgeInsets.all(MediaQuery.of(context).size.width*0.03),
                   child: Text("Select Appointment Date",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
                 ),
                 DatePicker(
@@ -82,11 +86,11 @@ class _BookAppointmentState extends State<BookAppointment> {
                   },
                 ),
                 Container(
-                  margin: EdgeInsets.all(MediaQuery.of(context).size.width*0.05),
+                  margin: EdgeInsets.all(MediaQuery.of(context).size.width*0.03),
                   child: Divider(color: Colors.grey,)
                 ),
                 Container(
-                  margin: EdgeInsets.all(MediaQuery.of(context).size.width*0.05),
+                  margin: EdgeInsets.all(MediaQuery.of(context).size.width*0.03),
                   child: Text("Select Appointment Time",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
                 ),
                 Container(
@@ -113,7 +117,7 @@ class _BookAppointmentState extends State<BookAppointment> {
                                 border: Border.all(color: Colors.white,width: 2),
 
                             ),
-                            child: Text("05:00 PM"),
+                            child: Text("05:00 PM", style: TextStyle(color: COLOR_BLACK)),
                           ),
                           Container(
                             width: width*0.3,
@@ -133,7 +137,7 @@ class _BookAppointmentState extends State<BookAppointment> {
                               border: Border.all(color: Colors.white,width: 2),
 
                             ),
-                            child: Text("05:00 PM"),
+                            child: Text("05:00 PM", style: TextStyle(color: COLOR_BLACK)),
                           ),
                           Container(
                             width: width*0.3,
@@ -153,73 +157,7 @@ class _BookAppointmentState extends State<BookAppointment> {
                               border: Border.all(color: Colors.white,width: 2),
 
                             ),
-                            child: Text("05:00 PM"),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 10,),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Container(
-                            width: width*0.3,
-                            height: 50,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  spreadRadius: 2,
-                                  blurRadius: 3,
-                                  offset: Offset(0, 2), // changes position of shadow
-                                ),
-                              ],
-                              borderRadius: BorderRadius.circular(30),
-                              border: Border.all(color: Colors.white,width: 2),
-
-                            ),
-                            child: Text("05:00 PM"),
-                          ),
-                          Container(
-                            width: width*0.3,
-                            height: 50,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  spreadRadius: 2,
-                                  blurRadius: 3,
-                                  offset: Offset(0, 2), // changes position of shadow
-                                ),
-                              ],
-                              borderRadius: BorderRadius.circular(30),
-                              border: Border.all(color: Colors.white,width: 2),
-
-                            ),
-                            child: Text("05:00 PM"),
-                          ),
-                          Container(
-                            width: width*0.3,
-                            height: 50,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  spreadRadius: 2,
-                                  blurRadius: 3,
-                                  offset: Offset(0, 2), // changes position of shadow
-                                ),
-                              ],
-                              borderRadius: BorderRadius.circular(30),
-                              border: Border.all(color: Colors.white,width: 2),
-
-                            ),
-                            child: Text("05:00 PM"),
+                            child: Text("05:00 PM", style: TextStyle(color: COLOR_BLACK)),
                           ),
                         ],
                       ),
@@ -245,7 +183,7 @@ class _BookAppointmentState extends State<BookAppointment> {
                               border: Border.all(color: Colors.white,width: 2),
 
                             ),
-                            child: Text("05:00 PM"),
+                            child: Text("05:00 PM", style: TextStyle(color: COLOR_BLACK)),
                           ),
                           Container(
                             width: width*0.3,
@@ -265,7 +203,7 @@ class _BookAppointmentState extends State<BookAppointment> {
                               border: Border.all(color: Colors.white,width: 2),
 
                             ),
-                            child: Text("05:00 PM"),
+                            child: Text("05:00 PM", style: TextStyle(color: COLOR_BLACK)),
                           ),
                           Container(
                             width: width*0.3,
@@ -285,18 +223,87 @@ class _BookAppointmentState extends State<BookAppointment> {
                               border: Border.all(color: Colors.white,width: 2),
 
                             ),
-                            child: Text("05:00 PM"),
+                            child: Text("05:00 PM", style: TextStyle(color: COLOR_BLACK)),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 10,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            width: width*0.3,
+                            height: 50,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 2,
+                                  blurRadius: 3,
+                                  offset: Offset(0, 2), // changes position of shadow
+                                ),
+                              ],
+                              borderRadius: BorderRadius.circular(30),
+                              border: Border.all(color: Colors.white,width: 2),
+
+                            ),
+                            child: Text("05:00 PM", style: TextStyle(color: COLOR_BLACK)),
+                          ),
+                          Container(
+                            width: width*0.3,
+                            height: 50,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 2,
+                                  blurRadius: 3,
+                                  offset: Offset(0, 2), // changes position of shadow
+                                ),
+                              ],
+                              borderRadius: BorderRadius.circular(30),
+                              border: Border.all(color: Colors.white,width: 2),
+
+                            ),
+                            child: Text("05:00 PM", style: TextStyle(color: COLOR_BLACK)),
+                          ),
+                          Container(
+                            width: width*0.3,
+                            height: 50,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 2,
+                                  blurRadius: 3,
+                                  offset: Offset(0, 2), // changes position of shadow
+                                ),
+                              ],
+                              borderRadius: BorderRadius.circular(30),
+                              border: Border.all(color: Colors.white,width: 2),
+
+                            ),
+                            child: Text("05:00 PM", style: TextStyle(color: COLOR_BLACK)),
                           ),
                         ],
                       ),
                     ],
                   ),
                 ),
+                SizedBox(
+                  height: 15,
+                ),
                 Container(
                   height: 50,
                   margin: EdgeInsets.all(margin),
                   decoration: BoxDecoration(
-                    gradient: colorGardient,
+                    gradient: colorGradient,
                     borderRadius: BorderRadius.circular(30),
 
                   ),
@@ -305,12 +312,10 @@ class _BookAppointmentState extends State<BookAppointment> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text("Confirm",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
-                      SizedBox(width: 5,),
-                      Icon(Icons.arrow_forward_ios_outlined,color: Colors.white,),
-                      Icon(Icons.arrow_forward_ios_outlined,color: Colors.grey,)
                     ],
                   ),
                 ),
+
 
               ],
             )

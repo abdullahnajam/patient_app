@@ -1,7 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:patient_app/screens/LoginScreen.dart';
 import 'package:patient_app/screens/NotificationScreen.dart';
 import 'package:patient_app/screens/PrivacyScreen.dart';
@@ -169,7 +168,7 @@ class _MenuScreenState extends State<MenuScreen> {
                                 textStyle: const TextStyle(
                                     fontSize: 18,
                                     color: COLOR_BLACK,
-                                    fontWeight: FontWeight.w400),
+                                    fontWeight: FontWeight.w300),
                               ),
                               onPressed: () {
                                 Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DoctorProfile()));
@@ -184,7 +183,7 @@ class _MenuScreenState extends State<MenuScreen> {
                                 textStyle: const TextStyle(
                                     fontSize: 18,
                                     color: COLOR_BLACK,
-                                    fontWeight: FontWeight.w400),
+                                    fontWeight: FontWeight.w300),
                               ),
                               onPressed: () {},
                               child: const Text('Edit Profile'),
@@ -196,7 +195,7 @@ class _MenuScreenState extends State<MenuScreen> {
                                 textStyle: const TextStyle(
                                     fontSize: 18,
                                     color: COLOR_BLACK,
-                                    fontWeight: FontWeight.w400),
+                                    fontWeight: FontWeight.w300),
                               ),
                               onPressed: () {},
                               child: const Text('Change Password'),
@@ -488,7 +487,7 @@ class _MenuScreenState extends State<MenuScreen> {
                                 textStyle: const TextStyle(
                                     fontSize: 18,
                                     color: COLOR_BLACK,
-                                    fontWeight: FontWeight.w400),
+                                    fontWeight: FontWeight.w300),
                               ),
                               onPressed: () {
                                 Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => SupportScreen()));
@@ -503,7 +502,7 @@ class _MenuScreenState extends State<MenuScreen> {
                                 textStyle: const TextStyle(
                                     fontSize: 18,
                                     color: COLOR_BLACK,
-                                    fontWeight: FontWeight.w400),
+                                    fontWeight: FontWeight.w300),
                               ),
                               onPressed: () {
                                 Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => TermsScreen()));
@@ -518,7 +517,7 @@ class _MenuScreenState extends State<MenuScreen> {
                                 textStyle: const TextStyle(
                                     fontSize: 18,
                                     color: COLOR_BLACK,
-                                    fontWeight: FontWeight.w400),
+                                    fontWeight: FontWeight.w300),
                               ),
                               onPressed: () {
                                 Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => PrivacyScreen()));
@@ -533,7 +532,7 @@ class _MenuScreenState extends State<MenuScreen> {
                                 textStyle: const TextStyle(
                                     fontSize: 18,
                                     color: COLOR_BLACK,
-                                    fontWeight: FontWeight.w400),
+                                    fontWeight: FontWeight.w300),
                               ),
                               onPressed: () {
                                 Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => ReportScreen()));

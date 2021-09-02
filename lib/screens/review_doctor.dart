@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-
-import 'constants.dart';
+import 'package:patient_app/utils/constants.dart';
 
 class ReviewDoctor extends StatefulWidget {
   const ReviewDoctor({Key? key}) : super(key: key);
@@ -21,7 +20,12 @@ class _ReviewDoctorState extends State<ReviewDoctor> {
       body: Stack(
         children: [
           Container(
-            color: primary,
+            decoration: BoxDecoration(
+                gradient: LinearGradient(colors: [COLOR_LIGHT_PURPLE, COLOR_LIGHT_BLUE],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                )
+            ),
             height: MediaQuery.of(context).size.height*0.3,
             padding: EdgeInsets.only(
               top:MediaQuery.of(context).size.height*0.08,
@@ -108,9 +112,9 @@ class _ReviewDoctorState extends State<ReviewDoctor> {
                           allowHalfRating: true,
                           itemCount: 5,
                           ratingWidget: RatingWidget(
-                            full: Icon(Icons.star,color: primary),
-                            half: Icon(Icons.star_half,color: primary),
-                            empty:Icon(Icons.star_border,color: primary,),
+                            full: Icon(Icons.star,color: COLOR_YELLOW),
+                            half: Icon(Icons.star_half,color: COLOR_YELLOW),
+                            empty:Icon(Icons.star_border,color: COLOR_YELLOW,),
                           ),
                           itemSize: 50,
                           itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
@@ -180,6 +184,7 @@ class _ReviewDoctorState extends State<ReviewDoctor> {
                     Container(
 
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Expanded(
                             flex: 1,
@@ -190,9 +195,9 @@ class _ReviewDoctorState extends State<ReviewDoctor> {
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     color: Colors.white,
-                                    border: Border.all(color: Colors.grey)
+                                    border: Border.all(color: Colors.grey.withOpacity(0.3))
                                   ),
-                                  child: Image.asset("assets/icons/sad.png",height: 40,width: 40,fit: BoxFit.cover,),
+                                  child: Image.asset("assets/icons/sad.png",height: 30,width: 30,fit: BoxFit.cover,),
                                 ),
                                 SizedBox(height: 5,),
                                 Text("Bad",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w300,fontSize: 15))
@@ -208,9 +213,9 @@ class _ReviewDoctorState extends State<ReviewDoctor> {
                                   decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       color: Colors.white,
-                                      border: Border.all(color: Colors.grey)
+                                      border: Border.all(color: Colors.grey.withOpacity(0.3))
                                   ),
-                                  child: Image.asset("assets/icons/good.png",height: 40,width: 40,fit: BoxFit.cover,),
+                                  child: Image.asset("assets/icons/good.png",height: 30,width: 30,fit: BoxFit.cover,),
                                 ),
                                 SizedBox(height: 5,),
                                 Text("Good",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w300,fontSize: 15))
@@ -226,9 +231,9 @@ class _ReviewDoctorState extends State<ReviewDoctor> {
                                   decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       color: Colors.white,
-                                      border: Border.all(color: Colors.grey)
+                                      border: Border.all(color: Colors.grey.withOpacity(0.3))
                                   ),
-                                  child: Image.asset("assets/icons/smiling.png",height: 40,width: 40,fit: BoxFit.cover,),
+                                  child: Image.asset("assets/icons/happy.png",height: 30,width: 30,fit: BoxFit.cover,),
                                 ),
                                 SizedBox(height: 5,),
                                 Text("Very Good",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w300,fontSize: 15))
@@ -244,9 +249,9 @@ class _ReviewDoctorState extends State<ReviewDoctor> {
                                   decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       color: Colors.white,
-                                      border: Border.all(color: Colors.grey)
+                                      border: Border.all(color: Colors.grey.withOpacity(0.3))
                                   ),
-                                  child: Image.asset("assets/icons/happy.png",height: 40,width: 40,fit: BoxFit.cover,),
+                                  child: Image.asset("assets/icons/excellent.png",height: 30,width: 30,fit: BoxFit.cover,),
                                 ),
                                 SizedBox(height: 5,),
                                 Text("Excellent",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w300,fontSize: 15))
@@ -260,7 +265,7 @@ class _ReviewDoctorState extends State<ReviewDoctor> {
                       height: 50,
                       margin: EdgeInsets.all(margin),
                       decoration: BoxDecoration(
-                        gradient: colorGardient,
+                        gradient: colorGradient,
                         borderRadius: BorderRadius.circular(30),
 
                       ),
@@ -270,8 +275,6 @@ class _ReviewDoctorState extends State<ReviewDoctor> {
                         children: [
                           Text("Continue",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
                           SizedBox(width: 5,),
-                          Icon(Icons.arrow_forward_ios_outlined,color: Colors.white,),
-                          Icon(Icons.arrow_forward_ios_outlined,color: Colors.grey,)
                         ],
                       ),
                     ),

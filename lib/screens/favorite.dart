@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-
-import 'constants.dart';
+import 'package:patient_app/utils/constants.dart';
 
 class Favorite extends StatefulWidget {
   const Favorite({Key? key}) : super(key: key);
@@ -39,7 +38,7 @@ class _FavoriteState extends State<Favorite> {
                       onPressed: (){
 
                       },
-                      icon: Icon(Icons.search_outlined,size: 30,color: Colors.grey[400],),
+                      icon: Icon(Icons.search_outlined,size: 30,color: Colors.grey[300],),
                     )
                   ],
                 ),
@@ -95,9 +94,9 @@ class _FavoriteState extends State<Favorite> {
                                               allowHalfRating: true,
                                               itemCount: 5,
                                               ratingWidget: RatingWidget(
-                                                full: Icon(Icons.star,color: primary),
-                                                half: Icon(Icons.star_half,color: primary),
-                                                empty:Icon(Icons.star_border,color: primary,),
+                                                full: Icon(Icons.star,color: COLOR_YELLOW),
+                                                half: Icon(Icons.star_half,color: COLOR_YELLOW),
+                                                empty:Icon(Icons.star_border,color: COLOR_YELLOW,),
                                               ),
                                               ignoreGestures: true,
                                               itemSize: 15,
@@ -168,9 +167,9 @@ class _FavoriteState extends State<Favorite> {
                                               allowHalfRating: true,
                                               itemCount: 5,
                                               ratingWidget: RatingWidget(
-                                                full: Icon(Icons.star,color: primary),
-                                                half: Icon(Icons.star_half,color: primary),
-                                                empty:Icon(Icons.star_border,color: primary,),
+                                                full: Icon(Icons.star,color: COLOR_YELLOW),
+                                                half: Icon(Icons.star_half,color: COLOR_YELLOW),
+                                                empty:Icon(Icons.star_border,color: COLOR_YELLOW,),
                                               ),
                                               ignoreGestures: true,
                                               itemSize: 15,

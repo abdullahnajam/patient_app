@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:patient_app/screens/constants.dart';
 import 'package:patient_app/screens/profile.dart';
+import 'package:patient_app/utils/constants.dart';
 
 
 class DoctorCard extends StatefulWidget {
@@ -69,9 +69,9 @@ class _DoctorCardState extends State<DoctorCard> {
                                allowHalfRating: true,
                                itemCount: 5,
                                ratingWidget: RatingWidget(
-                                 full: Icon(Icons.star,color: primary),
-                                 half: Icon(Icons.star_half,color: primary),
-                                 empty:Icon(Icons.star_border,color: primary,),
+                                 full: Icon(Icons.star,color: COLOR_YELLOW),
+                                 half: Icon(Icons.star_half,color: COLOR_YELLOW),
+                                 empty:Icon(Icons.star_border,color: COLOR_YELLOW,),
                                ),
                                ignoreGestures: true,
                                itemSize: 15,
@@ -141,7 +141,7 @@ class _DoctorCardState extends State<DoctorCard> {
                       ],
                     )
                 ),
-                child: Text("Details",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 15),),
+                child: Text("Details",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 15),),
               ),
             )
           ],

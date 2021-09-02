@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:otp_text_field/otp_field.dart';
+import 'package:otp_text_field/style.dart';
 import 'package:patient_app/utils/constants.dart';
 
+import 'MainScreen.dart';
 
 
-class ForgotPasswordSentScreen extends StatefulWidget {
+
+class OTPScreen extends StatefulWidget {
   @override
-  _ForgotPasswordSentScreenState createState() => _ForgotPasswordSentScreenState();
+  _OTPScreenState createState() => _OTPScreenState();
 }
 
-class _ForgotPasswordSentScreenState extends State<ForgotPasswordSentScreen> {
+class _OTPScreenState extends State<OTPScreen> {
   Color _backgroundColor = COLOR_WHITE;
 
   @override
@@ -50,31 +54,60 @@ class _ForgotPasswordSentScreenState extends State<ForgotPasswordSentScreen> {
                 ],
               ),
               SizedBox(
-                height: 32,
+                height: 12,
+              ),
+              Container(
+                child: Image.asset('assets/images/otp.png', height: 180),
               ),
               Center(
-                child: Text('Email has been sent!', style: TextStyle(
+                child: Text('Verify OTP', style: TextStyle(
                     fontSize: 26, color: COLOR_BLACK, fontWeight: FontWeight.bold
                 )),
               ),
+              SizedBox(
+                height: 10,
+              ),
               Center(
-                child: Text('\t\t Please check your inbox & click\nin the received link to reset password', style: TextStyle(
-                    fontSize: 14, color: COLOR_GREY.withOpacity(0.5)
-                )),
+                child: RichText(
+                  text: TextSpan(
+                    text: 'We will auto-detect the OTP sent to\n\t\t\t your mobile',
+                    style: TextStyle(fontSize: 15, color: COLOR_GREY.withOpacity(0.5)
+                    ), /*defining default style is optional */
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: ' +91-111111111',
+                          style: TextStyle(fontSize: 15, color: COLOR_DARK_BLUE)),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 22,
+              ),
+              OTPTextField(
+                length: 4,
+                width: MediaQuery.of(context).size.width-20,
+                textFieldAlignment: MainAxisAlignment.spaceAround,
+                fieldWidth: 55,
+                fieldStyle: FieldStyle.box,
+                outlineBorderRadius: 15,
+                style: TextStyle(fontSize: 18, color: COLOR_BLACK),
+                onChanged: (pin) {
+                  print("Changed: " + pin);
+                },
+                onCompleted: (pin) {
+                  print("Completed: " + pin);
+                },
               ),
               SizedBox(
                 height: 22,
               ),
               Container(
-                child: Image.asset('assets/images/forgot_pass_done.png', height: 280),
-              ),
-              SizedBox(
-                height: 66,
-              ),
-              Container(
                 height: 50.0,
                 child: RaisedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MainScreen()));
+                  },
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
                   padding: EdgeInsets.all(0.0),
                   child: Ink(
@@ -89,7 +122,7 @@ class _ForgotPasswordSentScreenState extends State<ForgotPasswordSentScreen> {
                       constraints: BoxConstraints( minHeight: 50.0),
                       alignment: Alignment.center,
                       child: Text(
-                        "Log In",
+                        "Verify OTP",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Colors.white
@@ -106,11 +139,10 @@ class _ForgotPasswordSentScreenState extends State<ForgotPasswordSentScreen> {
               Center(
                 child: GestureDetector(
                   onTap: () {
-                    Fluttertoast.showToast(msg: 'Click sign in', toastLength: Toast.LENGTH_SHORT);
                   },
                   child: RichText(
                     text: TextSpan(
-                      text: 'Didn\'t received a link??',
+                      text: 'Didn\'t received a OTP??',
                       style: TextStyle(fontSize: 15, color: COLOR_GREY.withOpacity(0.5)
                       ), /*defining default style is optional */
                       children: <TextSpan>[

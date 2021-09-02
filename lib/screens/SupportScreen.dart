@@ -93,7 +93,7 @@ class _SupportScreenState extends State<SupportScreen> {
                   print(value);
                 },
                 selectorConfig: SelectorConfig(
-                  selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
+                  selectorType: PhoneInputSelectorType.DROPDOWN,
                 ),
                 ignoreBlank: false,
                 autoValidateMode: AutovalidateMode.disabled,
@@ -173,6 +173,23 @@ class _SupportScreenState extends State<SupportScreen> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
+              Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset('assets/images/whtsap.png', width:40, height: 40),
+                    Text("Support Via Whatsapp Link",
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: COLOR_BLACK
+                                    ),
+                        )
+                  ],
+                ),
+              )
 
             ],
           ),

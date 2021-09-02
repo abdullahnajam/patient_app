@@ -37,7 +37,7 @@ class _CategoriesState extends State<Categories> {
                       onPressed: (){
 
                       },
-                      icon: Icon(Icons.search_outlined,size: 30,color: Colors.grey[400],),
+                      icon: Icon(Icons.search_outlined,size: 30,color: Colors.grey[300],),
                     )
                   ],
                 ),

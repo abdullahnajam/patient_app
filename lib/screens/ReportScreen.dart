@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:group_radio_button/group_radio_button.dart';
 import 'package:patient_app/utils/constants.dart';
 
 class ReportScreen extends StatefulWidget {
@@ -12,7 +11,9 @@ class ReportScreen extends StatefulWidget {
 
 class _ReportScreenState extends State<ReportScreen> {
   Color _backgroundColor = COLOR_WHITE;
-  bool _isRadioSelected = false;
+  String _verticalGroupValue = "Pending";
+
+  List<String> _status = ["Change profile details", "Report a Therapist", "other issues"];
 
   @override
   void initState() {
@@ -119,72 +120,17 @@ class _ReportScreenState extends State<ReportScreen> {
                   Card(
                     child: Padding(
                       padding: EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            flex: 1,
-                            child: LinkedLabelRadio(
-                              label: 'Change Profile Details',
-                              padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                              value: false,
-                              groupValue: _isRadioSelected,
-                              onChanged: (bool newValue) {
-                                setState(() {
-                                  _isRadioSelected = newValue;
-                                });
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-
-                  Card(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            flex: 1,
-                            child: LinkedLabelRadio(
-                              label: 'Report a Therapist',
-                              padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                              value: false,
-                              groupValue: _isRadioSelected,
-                              onChanged: (bool newValue) {
-                                setState(() {
-                                  _isRadioSelected = newValue;
-                                });
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-
-                  Card(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            flex: 1,
-                            child: LinkedLabelRadio(
-                              label: 'Other issues',
-                              padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                              value: false,
-                              groupValue: _isRadioSelected,
-                              onChanged: (bool newValue) {
-                                setState(() {
-                                  _isRadioSelected = newValue;
-                                });
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
+                      child: RadioGroup<String>.builder(
+                        groupValue: _verticalGroupValue,
+                        onChanged: (value) => setState(() {
+                          _verticalGroupValue = value!;
+                        }),
+                        items: _status,
+                        itemBuilder: (item) => RadioButtonBuilder(
+                          item,
+                        ),
+                        activeColor: COLOR_DARK_PURPLE,
+                      )
                     ),
                   ),
 
@@ -226,55 +172,3 @@ class _ReportScreenState extends State<ReportScreen> {
         ));
   }
 }
-
-
-
-//Radio Class
-class LinkedLabelRadio extends StatelessWidget {
-  const LinkedLabelRadio({
-    Key? key,
-    required this.label,
-    required this.padding,
-    required this.groupValue,
-    required this.value,
-    required this.onChanged,
-  }) : super(key: key);
-
-  final String label;
-  final EdgeInsets padding;
-  final bool groupValue;
-  final bool value;
-  final ValueChanged<bool> onChanged;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: padding,
-      child: Row(
-        children: <Widget>[
-          Radio<bool>(
-              groupValue: groupValue,
-              value: value,
-              onChanged: (bool? newValue) {
-                onChanged(newValue!);
-              }),
-          RichText(
-            text: TextSpan(
-              text: label,
-              style: const TextStyle(
-                  color: COLOR_BLACK,
-                  fontSize: 16
-              ),
-              recognizer: TapGestureRecognizer()
-                ..onTap = () {
-                  print('Label has been tapped.');
-                },
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-

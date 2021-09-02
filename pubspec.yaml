@@ -51,6 +51,8 @@ dependencies:
   smooth_page_indicator: ^1.0.0+2
   flutter_rating_bar: ^4.0.0
   date_picker_timeline: ^1.2.3
+  otp_text_field: ^1.1.1
+  group_radio_button: ^1.1.0
 
 dev_dependencies:
   flutter_test:

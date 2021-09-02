@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:patient_app/screens/profile.dart';
+import 'package:patient_app/utils/constants.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'CategoryScreen.dart';
-import 'constants.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -32,13 +32,18 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     var height=MediaQuery.of(context).size.height;
     var width=MediaQuery.of(context).size.width;
-    var margin=MediaQuery.of(context).size.width*0.05;
+    var margin=MediaQuery.of(context).size.width*0.02;
     return Scaffold(
       body: Stack(
         children: [
           Container(
-            color: primary,
             height: MediaQuery.of(context).size.height*0.3,
+            decoration: BoxDecoration(
+                gradient: LinearGradient(colors: [COLOR_LIGHT_PURPLE, COLOR_LIGHT_BLUE],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                )
+            ),
             padding: EdgeInsets.only(
               top:MediaQuery.of(context).size.height*0.08,
               left: MediaQuery.of(context).size.width*0.05,
@@ -99,7 +104,10 @@ class _HomePageState extends State<HomePage> {
                             color: blue,
                             borderRadius: BorderRadius.circular(10)
                         ),
-                        child: Icon(Icons.sort,color: Colors.white,),
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Image.asset('assets/icons/filter_icon.png'),
+                        ),
                       )
                     ],
 
@@ -239,12 +247,15 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Container(
-                  height: height*0.3,
+                  height: height*0.25,
                   margin: EdgeInsets.all(margin),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: primary,
-                  ),
+                        gradient: LinearGradient(colors: [COLOR_LIGHT_BLUE, COLOR_LIGHT_PURPLE],
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                        ),
+                    ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -264,11 +275,11 @@ class _HomePageState extends State<HomePage> {
                         subtitle: Text("Psychologist",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 10),),
                         trailing: CircleAvatar(
                           backgroundColor: Colors.white,
-                          child: Icon(Icons.camera_alt_outlined,),
+                          child: Icon(Icons.videocam_outlined,),
                         ),
                       ),
                       Container(
-                        height: height*0.1,
+                        height: height*0.08,
                         margin: EdgeInsets.all(margin),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
@@ -357,7 +368,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                               Row(
                                 children: [
-                                  Icon(Icons.star,color: Colors.yellow,),
+                                  Icon(Icons.star,color: COLOR_YELLOW,),
                                   Text("4.5")
                                 ],
                               )
@@ -384,7 +395,7 @@ class _HomePageState extends State<HomePage> {
                                   ],
                                 )
                             ),
-                            child: Text("Book Now",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 15),),
+                            child: Text("Book Now",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 15),),
                           ),
                         )
                       ],

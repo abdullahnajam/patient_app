@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:patient_app/screens/LoginScreen.dart';
+import 'package:patient_app/screens/OtpScreen.dart';
 import 'package:patient_app/utils/constants.dart';
 
 
@@ -114,7 +115,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   print(value);
                 },
                 selectorConfig: SelectorConfig(
-                  selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
+                  selectorType: PhoneInputSelectorType.DROPDOWN,
                 ),
                 ignoreBlank: false,
                 autoValidateMode: AutovalidateMode.disabled,
@@ -133,7 +134,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Container(
                 height: 50.0,
                 child: RaisedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => OTPScreen()));
+                  },
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
                   padding: EdgeInsets.all(0.0),
                   child: Ink(

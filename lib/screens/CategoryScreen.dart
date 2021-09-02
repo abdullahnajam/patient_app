@@ -90,10 +90,12 @@ class _CategoryScreenState extends State<CategoryScreen> {
 
                         )
                         ),
-                        TextButton(child: Text("Anxiety", style: TextStyle(
-                          fontSize: 18,
-                          color: COLOR_BLACK
-                        )), onPressed: () {})
+                        Center(
+                         child: TextButton(child: Text("Anxiety", style: TextStyle(
+                             fontSize: 15,
+                             color: COLOR_BLACK
+                         )), onPressed: () {}),
+                        )
                       ],
                     ),
                   ),
@@ -115,10 +117,12 @@ class _CategoryScreenState extends State<CategoryScreen> {
 
                             )
                         ),
-                        TextButton(child: Text("Relationships", style: TextStyle(
-                            fontSize: 18,
-                            color: COLOR_BLACK
-                        )), onPressed: () {})
+                        Center(
+                          child: TextButton(child: Text("Relationships", style: TextStyle(
+                              fontSize: 15,
+                              color: COLOR_BLACK
+                          )), onPressed: () {}),
+                        )
                       ],
                     ),
                   ),
@@ -147,10 +151,12 @@ class _CategoryScreenState extends State<CategoryScreen> {
 
                             )
                         ),
-                        TextButton(child: Text("Depression", style: TextStyle(
-                            fontSize: 18,
-                            color: COLOR_BLACK
-                        )), onPressed: () {})
+                        Center(
+                          child: TextButton(child: Text("Depression", style: TextStyle(
+                              fontSize: 15,
+                              color: COLOR_BLACK
+                          )), onPressed: () {}),
+                        )
                       ],
                     ),
                   ),
@@ -172,10 +178,12 @@ class _CategoryScreenState extends State<CategoryScreen> {
 
                             )
                         ),
-                        TextButton(child: Text("Children", style: TextStyle(
-                            fontSize: 18,
-                            color: COLOR_BLACK
-                        )), onPressed: () {})
+                        Center(
+                          child: TextButton(child: Text("Children", style: TextStyle(
+                              fontSize: 15,
+                              color: COLOR_BLACK
+                          )), onPressed: () {}),
+                        )
                       ],
                     ),
                   ),
@@ -204,10 +212,12 @@ class _CategoryScreenState extends State<CategoryScreen> {
 
                             )
                         ),
-                        TextButton(child: Text("Marriage & Family", style: TextStyle(
-                            fontSize: 18,
-                            color: COLOR_BLACK
-                        )), onPressed: () {})
+                        Center(
+                          child: TextButton(child: Text("Marriage & Family", style: TextStyle(
+                              fontSize: 15,
+                              color: COLOR_BLACK
+                          )), onPressed: () {}),
+                        )
                       ],
                     ),
                   ),
@@ -229,10 +239,12 @@ class _CategoryScreenState extends State<CategoryScreen> {
 
                             )
                         ),
-                        TextButton(child: Text("Trauma & Stress", style: TextStyle(
-                            fontSize: 18,
-                            color: COLOR_BLACK
-                        )), onPressed: () {})
+                        Center(
+                          child: TextButton(child: Text("Trauma & Stress", style: TextStyle(
+                              fontSize: 15,
+                              color: COLOR_BLACK
+                          )), onPressed: () {}),
+                        )
                       ],
                     ),
                   ),
@@ -261,10 +273,12 @@ class _CategoryScreenState extends State<CategoryScreen> {
 
                             )
                         ),
-                        TextButton(child: Text("Eating Disorders", style: TextStyle(
-                            fontSize: 18,
-                            color: COLOR_BLACK
-                        )), onPressed: () {})
+                        Center(
+                          child: TextButton(child: Text("Eating Disorders", style: TextStyle(
+                              fontSize: 15,
+                              color: COLOR_BLACK
+                          )), onPressed: () {}),
+                        )
                       ],
                     ),
                   ),
@@ -286,10 +300,12 @@ class _CategoryScreenState extends State<CategoryScreen> {
 
                             )
                         ),
-                        TextButton(child: Text("Substance Abuse", style: TextStyle(
-                            fontSize: 18,
-                            color: COLOR_BLACK
-                        )), onPressed: () {})
+                        Center(
+                          child: TextButton(child: Text("Substance Abuse", style: TextStyle(
+                              fontSize: 15,
+                              color: COLOR_BLACK
+                          )), onPressed: () {}),
+                        )
                       ],
                     ),
                   ),
