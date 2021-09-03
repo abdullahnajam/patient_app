@@ -59,7 +59,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 ),
                 Text("Category",
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       color: COLOR_BLACK,
                       fontWeight: FontWeight.bold,
                     )),

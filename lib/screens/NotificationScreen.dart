@@ -39,7 +39,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     child: Icon(Icons.arrow_back_ios_rounded,
                         color: COLOR_DARK_BLUE),
                     style: ElevatedButton.styleFrom(
@@ -50,7 +52,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                   ),
                   Text("Notifications",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         color: COLOR_BLACK,
                         fontWeight: FontWeight.bold,
                       )),
@@ -78,7 +80,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                               child: Text("Dr.Melvin send you a note for daily health", style:
                               TextStyle(
                                   color: COLOR_GREY.withOpacity(0.5),
-                                  fontSize: 16
+                                  fontSize: 14
                               ),)
                           )
                         ],
@@ -103,7 +105,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                               child: Text("Dr.Melvin accept your book please check your calender", style:
                               TextStyle(
                                   color: COLOR_GREY.withOpacity(0.5),
-                                  fontSize: 16
+                                  fontSize: 14
                               ),)
                           )
                         ],
@@ -128,7 +130,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                               child: Text("Your top up balance \$1000 has been success", style:
                               TextStyle(
                                   color: COLOR_GREY.withOpacity(0.5),
-                                  fontSize: 16
+                                  fontSize: 14
                               ),)
                           )
                         ],
@@ -153,7 +155,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                               child: Text("Your top up balance \$1000 has been success", style:
                               TextStyle(
                                   color: COLOR_GREY.withOpacity(0.5),
-                                  fontSize: 16
+                                  fontSize: 14
                               ),)
                           )
                         ],

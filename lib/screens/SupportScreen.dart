@@ -54,7 +54,9 @@ class _SupportScreenState extends State<SupportScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     child: Icon(Icons.arrow_back_ios_rounded, color: COLOR_DARK_BLUE),
                     style: ElevatedButton.styleFrom(
                       shape: CircleBorder(),
@@ -183,7 +185,7 @@ class _SupportScreenState extends State<SupportScreen> {
                     Image.asset('assets/images/whtsap.png', width:40, height: 40),
                     Text("Support Via Whatsapp Link",
                                     style: TextStyle(
-                                      fontSize: 14,
+                                      fontSize: 12,
                                       color: COLOR_BLACK
                                     ),
                         )

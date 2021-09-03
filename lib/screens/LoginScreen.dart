@@ -162,7 +162,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Center(
                 child: Text('Or Connect Using', style: TextStyle(
-                    fontSize: 16, color: COLOR_GREY.withOpacity(0.5)
+                    fontSize: 12, color: COLOR_GREY.withOpacity(0.5)
                 )),
               ),
               SizedBox(

@@ -78,7 +78,7 @@ class _MainScreenState extends State<MainScreen> {
                         ),
                         Expanded(
                             flex: 6,
-                            child:  Text("Home", style: TextStyle(color: COLOR_DARK_PURPLE , fontWeight: FontWeight.bold))
+                            child:  Text("Home", style: TextStyle(color: COLOR_DARK_PURPLE ))
                         ),
                       ],
                     ),
@@ -98,7 +98,7 @@ class _MainScreenState extends State<MainScreen> {
                         ),
                         Expanded(
                             flex: 6,
-                            child: Text("Search", style: TextStyle(color: COLOR_DARK_PURPLE , fontWeight: FontWeight.bold))
+                            child: Text("Search", style: TextStyle(color: COLOR_DARK_PURPLE , ))
                         ),
                       ],
                     ),
@@ -118,7 +118,7 @@ class _MainScreenState extends State<MainScreen> {
                         ),
                         Expanded(
                             flex: 6,
-                            child: Text("Appointments", style: TextStyle(color: COLOR_DARK_PURPLE , fontWeight: FontWeight.bold))
+                            child: Text("Appointments", style: TextStyle(color: COLOR_DARK_PURPLE , ))
                         ),
                       ],
                     ),
@@ -138,7 +138,7 @@ class _MainScreenState extends State<MainScreen> {
                         ),
                         Expanded(
                           flex: 6,
-                          child: Text("Menu", style: TextStyle(color: COLOR_DARK_PURPLE , fontWeight: FontWeight.bold))
+                          child: Text("Menu", style: TextStyle(color: COLOR_DARK_PURPLE ))
                         ),
                       ],
                     ),

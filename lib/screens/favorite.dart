@@ -33,7 +33,7 @@ class _FavoriteState extends State<Favorite> {
                         child: Icon(Icons.arrow_back_ios_rounded,color: Colors.grey,),
                       ),
                     ),
-                    Text("Favourite",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20),),
+                    Text("Favourite",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
                     IconButton(
                       onPressed: (){
 

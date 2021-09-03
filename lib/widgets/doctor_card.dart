@@ -57,7 +57,7 @@ class _DoctorCardState extends State<DoctorCard> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text("Dr. Navida Navara",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 18),),
+                          Text("Dr. Navida Navara",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 16),),
                           SizedBox(height: 3,),
                           Text("Psychologist",style: TextStyle(color: blue,fontWeight: FontWeight.w300,fontSize: 10),),
                           SizedBox(height: 3,),
@@ -141,7 +141,7 @@ class _DoctorCardState extends State<DoctorCard> {
                       ],
                     )
                 ),
-                child: Text("Details",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 15),),
+                child: Text("Details",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 12),),
               ),
             )
           ],

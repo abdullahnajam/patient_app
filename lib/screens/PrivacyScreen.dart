@@ -35,7 +35,9 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     child: Icon(Icons.arrow_back_ios_rounded,
                         color: COLOR_DARK_BLUE),
                     style: ElevatedButton.styleFrom(
@@ -46,7 +48,7 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                   ),
                   Text("Privacy Policy",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         color: COLOR_BLACK,
                         fontWeight: FontWeight.bold,
                       )),

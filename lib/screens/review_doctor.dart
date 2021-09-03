@@ -49,7 +49,7 @@ class _ReviewDoctorState extends State<ReviewDoctor> {
                 Align(
                   alignment: Alignment.topCenter,
                   child: Container(
-                    child: Text("Doctor Rate",style: TextStyle(color: Colors.white,fontSize: 20),),
+                    child: Text("Doctor Rate",style: TextStyle(color: Colors.white,fontSize: 18),),
                   )
                 )
 
@@ -100,7 +100,7 @@ class _ReviewDoctorState extends State<ReviewDoctor> {
                 Column(
                   children: [
                     SizedBox(height: 30,),
-                    Text("Dr. Navida Navara",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 20),),
+                    Text("Dr. Navida Navara",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 18),),
 
                     SizedBox(height: 10,),
                     Row(
@@ -133,7 +133,7 @@ class _ReviewDoctorState extends State<ReviewDoctor> {
                       child: Text(
                         "\"Kindly rate your experience\"",
                         textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.black,fontWeight: FontWeight.w300,fontSize: 18,),
+                        style: TextStyle(color: Colors.black,fontWeight: FontWeight.w300,fontSize: 14,),
                       ),
                     ),
                     Container(
@@ -273,7 +273,7 @@ class _ReviewDoctorState extends State<ReviewDoctor> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Continue",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
+                          Text("Continue",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16),),
                           SizedBox(width: 5,),
                         ],
                       ),

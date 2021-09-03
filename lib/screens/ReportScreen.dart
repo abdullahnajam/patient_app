@@ -40,7 +40,10 @@ class _ReportScreenState extends State<ReportScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+
+                    },
                     child: Icon(Icons.arrow_back_ios_rounded,
                         color: COLOR_DARK_BLUE),
                     style: ElevatedButton.styleFrom(
@@ -51,7 +54,7 @@ class _ReportScreenState extends State<ReportScreen> {
                   ),
                   Text("Report & Flag",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         color: COLOR_BLACK,
                         fontWeight: FontWeight.bold,
                       )),

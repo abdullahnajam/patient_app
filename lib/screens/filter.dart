@@ -42,7 +42,7 @@ class _FilterScreenState extends State<FilterScreen> {
                     child: Icon(Icons.arrow_back_ios_rounded,color: Colors.grey,),
                   ),
                 ),
-                Text("Filter",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20),),
+                Text("Filter",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
                 IconButton(
                   onPressed: (){
 
@@ -63,10 +63,10 @@ class _FilterScreenState extends State<FilterScreen> {
                   SizedBox(height: 10,),
                   Container(
                     padding: EdgeInsets.only(left: 15),
-                    child:  Text("Availability",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
+                    child:  Text("Availability",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 16),),
                   ),
                   SwitchListTile(
-                    title: Text('Availability Today',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w300,fontSize: 15),),
+                    title: Text('Availability Today',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w300,fontSize: 14),),
                     value: _availability,
                     onChanged: (bool value) {
                       setState(() {
@@ -78,10 +78,10 @@ class _FilterScreenState extends State<FilterScreen> {
                     width: width,
                     color: Colors.grey[100],
                     padding: EdgeInsets.all(5),
-                    child:  Text("Location",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
+                    child:  Text("Location",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 16),),
                   ),
                   SwitchListTile(
-                    title: Text('Location',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w300,fontSize: 15),),
+                    title: Text('Location',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w300,fontSize: 14),),
                     value: _location,
                     onChanged: (bool value) {
                       setState(() {
@@ -133,7 +133,7 @@ class _FilterScreenState extends State<FilterScreen> {
                   SizedBox(height: 10,),
                   Container(
                     padding: EdgeInsets.only(left: 15),
-                    child:  Text("Categories",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
+                    child:  Text("Categories",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 16),),
                   ),
                   SizedBox(height: 10,),
                   Container(
@@ -168,10 +168,8 @@ class _FilterScreenState extends State<FilterScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("View All",style: TextStyle(color:blue,fontWeight: FontWeight.bold,fontSize: 18),),
+                      Text("View All",style: TextStyle(color:blue,fontWeight: FontWeight.bold,fontSize: 14),),
                       SizedBox(width: 5,),
-                      Icon(Icons.arrow_forward_ios_outlined,color: blue,size: 16,),
-                      Icon(Icons.arrow_forward_ios_outlined,color: Color(0xff9495ff),size:16)
                     ],
                   ),
                   SizedBox(height: 20,),
@@ -179,15 +177,15 @@ class _FilterScreenState extends State<FilterScreen> {
                     width: width,
                     color: Colors.grey[100],
                     padding: EdgeInsets.all(5),
-                    child:  Text("Price",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
+                    child:  Text("Price",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 16),),
                   ),
                   Container(
                     padding: EdgeInsets.only(left: 25,right: 25,top: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("\$20",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
-                        Text("\$250",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
+                        Text("\$20",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 16),),
+                        Text("\$250",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 16),),
                       ],
                     ),
                   ),
@@ -227,7 +225,7 @@ class _FilterScreenState extends State<FilterScreen> {
 
                       ),
                       child: Center(
-                        child:Text("Reset",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
+                        child:Text("Reset",style: TextStyle(color: Colors.white,fontSize: 16),),
 
                       )
                     ),
@@ -246,7 +244,7 @@ class _FilterScreenState extends State<FilterScreen> {
 
                         ),
                         child: Center(
-                          child:Text("Filter Now",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
+                          child:Text("Filter Now",style: TextStyle(color: Colors.white,fontSize: 16),),
 
                         )
                     ),

@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     var height=MediaQuery.of(context).size.height;
     var width=MediaQuery.of(context).size.width;
-    var margin=MediaQuery.of(context).size.width*0.02;
+    var margin=MediaQuery.of(context).size.width*0.04;
     return Scaffold(
       body: Stack(
         children: [
@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Container(
                   margin: EdgeInsets.all(MediaQuery.of(context).size.width*0.05),
-                  child: Text("Special Offers",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
+                  child: Text("Special Offers",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 16),),
                 ),
                 Container(
                   height: MediaQuery.of(context).size.height*0.2,
@@ -184,13 +184,13 @@ class _HomePageState extends State<HomePage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Categories",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
+                      Text("Categories",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 16),),
                       InkWell(
                         onTap: (){
                           Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => CategoryScreen()));
 
                         },
-                          child: Text("View All",style: TextStyle(color: blue,fontWeight: FontWeight.bold,fontSize: 15),)),
+                          child: Text("View All",style: TextStyle(color: blue,fontWeight: FontWeight.bold,fontSize: 12),)),
                     ],
                   ),
 
@@ -241,14 +241,14 @@ class _HomePageState extends State<HomePage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Upcoming Schedule",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
-                      Text("View All",style: TextStyle(color: blue,fontWeight: FontWeight.bold,fontSize: 15),),
+                      Text("Upcoming Schedule",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 16),),
+                      Text("View All",style: TextStyle(color: blue,fontWeight: FontWeight.bold,fontSize: 12),),
                     ],
                   ),
                 ),
                 Container(
                   height: height*0.25,
-                  margin: EdgeInsets.all(margin),
+                  margin: EdgeInsets.only(left: margin, right: margin),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                         gradient: LinearGradient(colors: [COLOR_LIGHT_BLUE, COLOR_LIGHT_PURPLE],
@@ -303,8 +303,8 @@ class _HomePageState extends State<HomePage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Featured Doctors",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
-                      Text("View All",style: TextStyle(color: blue,fontWeight: FontWeight.bold,fontSize: 15),),
+                      Text("Featured Doctors",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 16),),
+                      Text("View All",style: TextStyle(color: blue,fontWeight: FontWeight.bold,fontSize: 12),),
                     ],
                   ),
                 ),
@@ -313,7 +313,7 @@ class _HomePageState extends State<HomePage> {
                     Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DoctorProfile()));
                   },
                   child: Container(
-                    margin: EdgeInsets.all(margin),
+                    margin: EdgeInsets.only(left: margin, right: margin),
                     height: height*0.2,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
@@ -343,15 +343,15 @@ class _HomePageState extends State<HomePage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  Text("Dr. Navida Navara",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 18),),
+                                  Text("Dr. Navida Navara",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 16),),
                                   Text("Psychologist",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w300,fontSize: 10),),
-                                  Text("18 Years Experience",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w500,fontSize: 15),),
+                                  Text("18 Years Experience",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w500,fontSize: 12),),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Icon(Icons.place,color: primary,size: 20,),
                                       SizedBox(width: 2,),
-                                      Text("Miami, USA",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w500,fontSize: 15),),
+                                      Text("Miami, USA",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w500,fontSize: 12),),
 
                                     ],
                                   ),
@@ -360,7 +360,7 @@ class _HomePageState extends State<HomePage> {
                                     children: [
                                       Image.asset("assets/icons/money.png",width: 20,height: 20,),
                                       SizedBox(width: 2,),
-                                      Text("\$20/hr",style: TextStyle(color: primary,fontWeight: FontWeight.bold,fontSize: 15),),
+                                      Text("\$20/hr",style: TextStyle(color: primary,fontWeight: FontWeight.bold,fontSize: 12),),
 
                                     ],
                                   )
@@ -395,7 +395,7 @@ class _HomePageState extends State<HomePage> {
                                   ],
                                 )
                             ),
-                            child: Text("Book Now",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 15),),
+                            child: Text("Book Now",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize: 12),),
                           ),
                         )
                       ],

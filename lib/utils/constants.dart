@@ -40,7 +40,7 @@ const TextTheme TEXT_THEME_DEFAULT = TextTheme(
   headline2: TextStyle(
       color: COLOR_LIGHT_PURPLE, fontWeight: FontWeight.w700, fontSize: 22),
   headline3: TextStyle(
-      color: COLOR_LIGHT_PURPLE, fontWeight: FontWeight.w700, fontSize: 20),
+      color: COLOR_LIGHT_PURPLE, fontWeight: FontWeight.w700, fontSize: 18),
   headline4: TextStyle(
       color: COLOR_LIGHT_PURPLE, fontWeight: FontWeight.w700, fontSize: 16),
   headline5: TextStyle(

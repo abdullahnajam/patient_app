@@ -49,7 +49,7 @@ class _BookAppointmentState extends State<BookAppointment> {
                 Align(
                     alignment: Alignment.topCenter,
                     child: Container(
-                      child: Text("Book An Appointment",style: TextStyle(color: Colors.white,fontSize: 20),),
+                      child: Text("Book An Appointment",style: TextStyle(color: Colors.white,fontSize: 18),),
                     )
                 )
 

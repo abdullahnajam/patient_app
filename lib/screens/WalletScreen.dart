@@ -40,7 +40,10 @@ class _WalletScreenState extends State<WalletScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+
+                    },
                     child: Icon(Icons.arrow_back_ios_rounded,
                         color: COLOR_DARK_BLUE),
                     style: ElevatedButton.styleFrom(
@@ -51,7 +54,7 @@ class _WalletScreenState extends State<WalletScreen> {
                   ),
                   Text("Wallet",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         color: COLOR_BLACK,
                         fontWeight: FontWeight.bold,
                       )),
@@ -131,7 +134,7 @@ class _WalletScreenState extends State<WalletScreen> {
                         borderRadius: BorderRadius.circular(30),
 
                       ),
-                      child: Text("\$  Recharge",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
+                      child: Text("\$  Recharge",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 14),),
                     ),
                   ],
                 ),
@@ -143,7 +146,7 @@ class _WalletScreenState extends State<WalletScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text("Transactions", style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: COLOR_BLACK
                   )),
@@ -190,7 +193,7 @@ class _WalletScreenState extends State<WalletScreen> {
                               child: Text("Your top up balance \$1000 has been success", style:
                                 TextStyle(
                                   color: COLOR_GREY.withOpacity(0.5),
-                                  fontSize: 16
+                                  fontSize: 14
                                 ),)
                           )
                         ],
@@ -215,7 +218,7 @@ class _WalletScreenState extends State<WalletScreen> {
                               child: Text("Your top up balance \$1000 has been success", style:
                               TextStyle(
                                   color: COLOR_GREY.withOpacity(0.5),
-                                  fontSize: 16
+                                  fontSize: 14
                               ),)
                           )
                         ],
@@ -240,7 +243,7 @@ class _WalletScreenState extends State<WalletScreen> {
                               child: Text("Your top up balance \$1000 has been success", style:
                               TextStyle(
                                   color: COLOR_GREY.withOpacity(0.5),
-                                  fontSize: 16
+                                  fontSize: 14
                               ),)
                           )
                         ],
@@ -265,7 +268,7 @@ class _WalletScreenState extends State<WalletScreen> {
                               child: Text("Your top up balance \$1000 has been success", style:
                               TextStyle(
                                   color: COLOR_GREY.withOpacity(0.5),
-                                  fontSize: 16
+                                  fontSize: 14
                               ),)
                           )
                         ],

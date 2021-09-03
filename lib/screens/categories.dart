@@ -32,7 +32,7 @@ class _CategoriesState extends State<Categories> {
                         child: Icon(Icons.arrow_back_ios_rounded,color: Colors.grey,),
                       ),
                     ),
-                    Text("Category",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20),),
+                    Text("Category",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
                     IconButton(
                       onPressed: (){
 

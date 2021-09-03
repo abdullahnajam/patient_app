@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:patient_app/screens/LoginScreen.dart';
+import 'package:patient_app/screens/MainScreen.dart';
 import 'package:patient_app/screens/NotificationScreen.dart';
 import 'package:patient_app/screens/PrivacyScreen.dart';
 import 'package:patient_app/screens/ReportScreen.dart';
@@ -9,7 +10,6 @@ import 'package:patient_app/screens/SupportScreen.dart';
 import 'package:patient_app/screens/TermsScreen.dart';
 import 'package:patient_app/screens/WalletScreen.dart';
 import 'package:patient_app/screens/favorite.dart';
-import 'package:patient_app/screens/profile.dart';
 import 'package:patient_app/utils/constants.dart';
 
 import 'editProfile.dart';
@@ -103,7 +103,10 @@ class _MenuScreenState extends State<MenuScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MainScreen()));
+
+                    },
                     child: Icon(Icons.arrow_back_ios_rounded,
                         color: COLOR_DARK_BLUE),
                     style: ElevatedButton.styleFrom(
@@ -114,7 +117,7 @@ class _MenuScreenState extends State<MenuScreen> {
                   ),
                   Text("Menu",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         color: COLOR_BLACK,
                         fontWeight: FontWeight.bold,
                       )),
@@ -150,7 +153,7 @@ class _MenuScreenState extends State<MenuScreen> {
                                   label: Text(
                                     'Profile',
                                     style: TextStyle(
-                                        fontSize: 18,
+                                        fontSize: 16,
                                         color: COLOR_BLACK,
                                         fontWeight: FontWeight.w600),
                                   ),
@@ -168,7 +171,7 @@ class _MenuScreenState extends State<MenuScreen> {
 
                                 primary: COLOR_BLACK,
                                 textStyle: const TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 14,
                                     color: COLOR_BLACK,
                                     fontWeight: FontWeight.w300),
                               ),
@@ -183,7 +186,7 @@ class _MenuScreenState extends State<MenuScreen> {
 
                                 primary: COLOR_BLACK,
                                 textStyle: const TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 14,
                                     color: COLOR_BLACK,
                                     fontWeight: FontWeight.w300),
                               ),
@@ -198,7 +201,7 @@ class _MenuScreenState extends State<MenuScreen> {
 
                                 primary: COLOR_BLACK,
                                 textStyle: const TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 14,
                                     color: COLOR_BLACK,
                                     fontWeight: FontWeight.w300),
                               ),
@@ -238,7 +241,7 @@ class _MenuScreenState extends State<MenuScreen> {
                                   label: Text(
                                     'Wallet',
                                     style: TextStyle(
-                                        fontSize: 18,
+                                        fontSize: 16,
                                         color: COLOR_BLACK,
                                         fontWeight: FontWeight.w600),
                                   ),
@@ -279,7 +282,7 @@ class _MenuScreenState extends State<MenuScreen> {
                                   label: Text(
                                     'Language',
                                     style: TextStyle(
-                                        fontSize: 18,
+                                        fontSize: 16,
                                         color: COLOR_BLACK,
                                         fontWeight: FontWeight.w600),
                                   ),
@@ -350,7 +353,7 @@ class _MenuScreenState extends State<MenuScreen> {
                               label: Text(
                                 'Notifications',
                                 style: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 16,
                                     color: COLOR_BLACK,
                                     fontWeight: FontWeight.w600),
                               ),
@@ -391,7 +394,7 @@ class _MenuScreenState extends State<MenuScreen> {
                               label: Text(
                                 'Favorites',
                                 style: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 16,
                                     color: COLOR_BLACK,
                                     fontWeight: FontWeight.w600),
                               ),
@@ -431,7 +434,7 @@ class _MenuScreenState extends State<MenuScreen> {
                               label: Text(
                                 'Log Out',
                                 style: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 16,
                                     color: COLOR_BLACK,
                                     fontWeight: FontWeight.w600),
                               ),
@@ -472,7 +475,7 @@ class _MenuScreenState extends State<MenuScreen> {
                                   label: Text(
                                     'Help & Support',
                                     style: TextStyle(
-                                        fontSize: 18,
+                                        fontSize: 16,
                                         color: COLOR_BLACK,
                                         fontWeight: FontWeight.w600),
                                   ),
@@ -490,7 +493,7 @@ class _MenuScreenState extends State<MenuScreen> {
 
                                 primary: COLOR_BLACK,
                                 textStyle: const TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 14,
                                     color: COLOR_BLACK,
                                     fontWeight: FontWeight.w300),
                               ),
@@ -505,7 +508,7 @@ class _MenuScreenState extends State<MenuScreen> {
 
                                 primary: COLOR_BLACK,
                                 textStyle: const TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 14,
                                     color: COLOR_BLACK,
                                     fontWeight: FontWeight.w300),
                               ),
@@ -520,7 +523,7 @@ class _MenuScreenState extends State<MenuScreen> {
 
                                 primary: COLOR_BLACK,
                                 textStyle: const TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 14,
                                     color: COLOR_BLACK,
                                     fontWeight: FontWeight.w300),
                               ),
@@ -535,7 +538,7 @@ class _MenuScreenState extends State<MenuScreen> {
 
                                 primary: COLOR_BLACK,
                                 textStyle: const TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 14,
                                     color: COLOR_BLACK,
                                     fontWeight: FontWeight.w300),
                               ),

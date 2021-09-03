@@ -89,7 +89,7 @@ class _EditProfileState extends State<EditProfile> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(height: 20,),
-                      Text("Name",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 15),),
+                      Text("Name",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 14),),
                       SizedBox(height: 10,),
                       Container(
                         child:TextFormField(
@@ -100,7 +100,7 @@ class _EditProfileState extends State<EditProfile> {
                             return null;
                           },
                           decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(15),
+                            contentPadding: EdgeInsets.all(14),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10.0),
                               borderSide: BorderSide(
@@ -133,7 +133,7 @@ class _EditProfileState extends State<EditProfile> {
                       ),
 
                       SizedBox(height: 10,),
-                      Text("E-mail",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 15),),
+                      Text("E-mail",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 14),),
                       SizedBox(height: 10,),
                       Container(
                         child:TextFormField(
@@ -144,7 +144,7 @@ class _EditProfileState extends State<EditProfile> {
                             return null;
                           },
                           decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(15),
+                            contentPadding: EdgeInsets.all(14),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10.0),
                               borderSide: BorderSide(
@@ -177,7 +177,7 @@ class _EditProfileState extends State<EditProfile> {
                       ),
 
                       SizedBox(height: 10,),
-                      Text("Password",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 15),),
+                      Text("Password",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 14),),
                       SizedBox(height: 10,),
                       Container(
                         child:TextFormField(
@@ -189,7 +189,7 @@ class _EditProfileState extends State<EditProfile> {
                             return null;
                           },
                           decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(15),
+                            contentPadding: EdgeInsets.all(14),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10.0),
                               borderSide: BorderSide(
@@ -222,7 +222,7 @@ class _EditProfileState extends State<EditProfile> {
                       ),
 
                       SizedBox(height: 10,),
-                      Text("Mobile Number",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 15),),
+                      Text("Mobile Number",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 14),),
                       SizedBox(height: 10,),
                       Container(
                         decoration: BoxDecoration(
@@ -253,7 +253,7 @@ class _EditProfileState extends State<EditProfile> {
                                   return null;
                                 },
                                 decoration: InputDecoration(
-                                  contentPadding: EdgeInsets.all(15),
+                                  contentPadding: EdgeInsets.all(14),
                                   focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10.0),
                                     borderSide: BorderSide(
@@ -294,7 +294,7 @@ class _EditProfileState extends State<EditProfile> {
                         children: [
                           Text(
                             'Gender',
-                            style: new TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 15),
+                            style: new TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 14),
                           ),
                           Row(
                             children: [
@@ -309,7 +309,7 @@ class _EditProfileState extends State<EditProfile> {
                               ),
                               new Text(
                                 'Male',
-                                style: new TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 15),
+                                style: new TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 14),
                               ),
                               new Radio(
                                 value: gender.female,
@@ -324,7 +324,7 @@ class _EditProfileState extends State<EditProfile> {
                               new Text(
                                 'Female',
                                 style: new TextStyle(
-                                    color: Colors.black,fontWeight: FontWeight.w500,fontSize: 15
+                                    color: Colors.black,fontWeight: FontWeight.w500,fontSize: 14
                                 ),
                               ),
                             ],
@@ -347,10 +347,8 @@ class _EditProfileState extends State<EditProfile> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text("Save",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
+                              Text("Save",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16),),
                               SizedBox(width: 5,),
-                              Icon(Icons.arrow_forward_ios_outlined,color: Colors.white,),
-                              Icon(Icons.arrow_forward_ios_outlined,color: Colors.grey,)
                             ],
                           ),
                         ),

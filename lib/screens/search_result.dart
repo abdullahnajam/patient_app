@@ -2,6 +2,8 @@ import 'package:patient_app/screens/filter.dart';
 import 'package:patient_app/widgets/doctor_card.dart';
 import 'package:flutter/material.dart';
 
+import 'MainScreen.dart';
+
 class SearchResult extends StatefulWidget {
   const SearchResult({Key? key}) : super(key: key);
 
@@ -26,14 +28,14 @@ class _SearchResultState extends State<SearchResult> {
                 children: [
                  InkWell(
                    onTap: (){
-                     Navigator.pop(context);
+                     Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MainScreen()));
                    },
                    child:  CircleAvatar(
                      backgroundColor: Colors.grey[200],
                      child: Icon(Icons.arrow_back_ios_rounded,color: Colors.grey,),
                    ),
                  ),
-                  Text("Search Results",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20),),
+                  Text("Search Results",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
                   IconButton(
                     onPressed: (){
 

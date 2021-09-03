@@ -35,7 +35,10 @@ class _TermsScreenState extends State<TermsScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+
+                    },
                     child: Icon(Icons.arrow_back_ios_rounded,
                         color: COLOR_DARK_BLUE),
                     style: ElevatedButton.styleFrom(
@@ -44,9 +47,9 @@ class _TermsScreenState extends State<TermsScreen> {
                       primary: Colors.white70, // <-- Button color
                     ),
                   ),
-                  Text("Privacy Policy",
+                  Text("Terms & Conditions",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         color: COLOR_BLACK,
                         fontWeight: FontWeight.bold,
                       )),
@@ -68,7 +71,7 @@ class _TermsScreenState extends State<TermsScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Privacy Policy",
+                            "Terms & Conditions",
                             style: TextStyle(
                                 color: COLOR_BLACK,
                                 fontSize: 16),

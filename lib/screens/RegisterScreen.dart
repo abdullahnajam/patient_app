@@ -166,7 +166,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               Center(
                 child: Text('Or sign up with', style: TextStyle(
-                    fontSize: 16, color: COLOR_GREY.withOpacity(0.5)
+                    fontSize: 12, color: COLOR_GREY.withOpacity(0.5)
                 )),
               ),
               SizedBox(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:patient_app/screens/review_doctor.dart';
 
+import 'MainScreen.dart';
 import 'constants.dart';
 
 class BookingHisttory extends StatefulWidget {
@@ -27,14 +28,14 @@ class _BookingHisttoryState extends State<BookingHisttory> {
                   children: [
                     InkWell(
                       onTap: (){
-                        Navigator.pop(context);
+                        Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MainScreen()));
                       },
                       child:  CircleAvatar(
                         backgroundColor: Colors.grey[200],
                         child: Icon(Icons.arrow_back_ios_rounded,color: Colors.grey,),
                       ),
                     ),
-                    Text("Booking History",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20),),
+                    Text("Booking History",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
                     IconButton(
                       onPressed: (){
 
@@ -118,7 +119,7 @@ class _BookingHisttoryState extends State<BookingHisttory> {
                                                 Row(
                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                   children: [
-                                                    Text("John Smith",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 20),),
+                                                    Text("John Smith",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 14),),
                                                     Container(
                                                       padding: EdgeInsets.only(left: 10,right: 10,top: 3,bottom: 3),
                                                       margin: EdgeInsets.only(right: 10),
@@ -219,7 +220,7 @@ class _BookingHisttoryState extends State<BookingHisttory> {
                                                   Row(
                                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                     children: [
-                                                      Text("John Smith",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 20),),
+                                                      Text("John Smith",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 14),),
                                                       Container(
                                                         padding: EdgeInsets.only(left: 10,right: 10,top: 3,bottom: 3),
                                                         margin: EdgeInsets.only(right: 10),

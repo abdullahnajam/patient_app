@@ -43,7 +43,9 @@ class _OTPScreenState extends State<OTPScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     child: Icon(Icons.arrow_back_ios_rounded, color: COLOR_DARK_BLUE),
                     style: ElevatedButton.styleFrom(
                       shape: CircleBorder(),

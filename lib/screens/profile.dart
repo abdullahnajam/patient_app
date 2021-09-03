@@ -112,7 +112,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w500,
-                          fontSize: 20),
+                          fontSize: 18),
                     ),
                     Text(
                       "Psychologist",
@@ -246,7 +246,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                     Container(
                       alignment: Alignment.center,
                       child: Text(
-                        "Lorem ipsum, or lipsum as it is some times wn is \ndummy text used in laying out print",
+                        "Lorem ipsum, or lipsum as it is \ndummy text used in laying out print",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.grey,
@@ -289,7 +289,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w300,
-                              fontSize: 18),
+                              fontSize: 14),
                         ),
                         subtitle: Text(
                           "08:00 AM - 05:00 AM",
@@ -334,7 +334,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w300,
-                              fontSize: 18),
+                              fontSize: 14),
                         ),
                         subtitle: Text(
                           "Miami , USA",
@@ -354,7 +354,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
-                            fontSize: 18),
+                            fontSize: 16),
                       ),
                     ),
                     Container(
@@ -370,7 +370,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                                   style: TextStyle(
                                       color: Colors.grey,
                                       fontWeight: FontWeight.w300,
-                                      fontSize: 18),
+                                      fontSize: 15),
                                 ),
                                 SizedBox(
                                   height: 3,
@@ -406,7 +406,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                                         value: value,
                                         child: Text(value,
                                           style: TextStyle(
-                                            fontSize: 17,
+                                            fontSize: 15,
                                           ),),
                                       );
                                     }).toList(),
@@ -433,7 +433,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                                   style: TextStyle(
                                       color: Colors.grey,
                                       fontWeight: FontWeight.w300,
-                                      fontSize: 17),
+                                      fontSize: 15),
                                 ),
                                 SizedBox(
                                   height: 3,
@@ -458,7 +458,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w300,
-                                        fontSize: 17),
+                                        fontSize: 15),
                                   ),
                                 )
                               ],
@@ -475,14 +475,14 @@ class _DoctorProfileState extends State<DoctorProfile> {
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18),
+                                fontSize: 16),
                           ),
                           Text(
                             "More",
                             style: TextStyle(
                                 color: blue,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 15),
+                                fontSize: 14),
                           ),
                         ],
                       ),
@@ -523,7 +523,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                                       style: TextStyle(
                                           color: Colors.black,
                                           fontWeight: FontWeight.w500,
-                                          fontSize: 20),
+                                          fontSize: 16),
                                     ),
                                     SizedBox(
                                       width: 10,
@@ -611,7 +611,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 18),
+                                  fontSize: 16),
                             ),
                             SizedBox(
                               width: 5,
