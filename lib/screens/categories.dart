@@ -1,3 +1,6 @@
+import 'package:flutter/cupertino.dart';
+import 'package:patient_app/screens/filter.dart';
+import 'package:patient_app/utils/constants.dart';
 import 'package:patient_app/widgets/doctor_card.dart';
 import 'package:flutter/material.dart';
 
@@ -85,20 +88,50 @@ class _CategoriesState extends State<Categories> {
 
                       ),
                       VerticalDivider(color: Colors.grey,),
-                      Container(
-                        width: width*0.25,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
+                      InkWell(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => FilterScreen()));
+                        },
+                        child: Container(
+                          width: width*0.25,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
 
-                            Icon(Icons.filter_alt_rounded,size: 18),
-                            Text("  Filter",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w800,fontSize: 12),),
-                          ],
+                              Icon(Icons.filter_alt_rounded,size: 18),
+                              Text("  Filter",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w800,fontSize: 12),),
+                            ],
+                          ),
+
                         ),
-
                       ),
                     ],
                   ),
+                ),
+                SizedBox(
+                  height: 12,
+                ),
+                Row(
+                  children: [
+                    Expanded(flex: 2,
+                      child: Card(
+                        child: Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text("Anxiety", style: TextStyle(
+                                  fontSize: 12,
+                                  color: COLOR_GREY
+                              ),),
+                              Icon(Icons.close, size: 10,)
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(flex:7,child: SizedBox(width: 40,))
+                  ],
                 ),
                 Expanded(
                   child: ListView.builder(

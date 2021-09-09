@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:patient_app/screens/ChangePassword.dart';
 import 'package:patient_app/screens/LoginScreen.dart';
 import 'package:patient_app/screens/MainScreen.dart';
 import 'package:patient_app/screens/NotificationScreen.dart';
@@ -191,21 +192,8 @@ class _MenuScreenState extends State<MenuScreen> {
                                     fontWeight: FontWeight.w300),
                               ),
                               onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => EditProfile()));
-
+                                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => ChangePasswordScreen()));
                               },
-                              child: const Text('Edit Profile'),
-                            ),
-                            TextButton(
-                              style: TextButton.styleFrom(
-
-                                primary: COLOR_BLACK,
-                                textStyle: const TextStyle(
-                                    fontSize: 14,
-                                    color: COLOR_BLACK,
-                                    fontWeight: FontWeight.w300),
-                              ),
-                              onPressed: () {},
                               child: const Text('Change Password'),
                             )
                           ],

@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:patient_app/utils/constants.dart';
 
+import 'MainScreen.dart';
+
 
 
 class ForgotPasswordSentScreen extends StatefulWidget {
@@ -76,7 +78,10 @@ class _ForgotPasswordSentScreenState extends State<ForgotPasswordSentScreen> {
               Container(
                 height: 50.0,
                 child: RaisedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MainScreen()));
+
+                  },
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
                   padding: EdgeInsets.all(0.0),
                   child: Ink(
@@ -108,7 +113,7 @@ class _ForgotPasswordSentScreenState extends State<ForgotPasswordSentScreen> {
               Center(
                 child: GestureDetector(
                   onTap: () {
-                    Fluttertoast.showToast(msg: 'Click sign in', toastLength: Toast.LENGTH_SHORT);
+                    Fluttertoast.showToast(msg: 'Click Resend', toastLength: Toast.LENGTH_SHORT);
                   },
                   child: RichText(
                     text: TextSpan(
