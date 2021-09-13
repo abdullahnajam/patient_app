@@ -35,12 +35,12 @@ class _BookingHisttoryState extends State<BookingHisttory> {
                         child: Icon(Icons.arrow_back_ios_rounded,color: Colors.grey,),
                       ),
                     ),
-                    Text("Booking History",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
+                    Text("Appointment",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
                     IconButton(
                       onPressed: (){
 
                       },
-                      icon: Icon(Icons.search_outlined,size: 30,color: Colors.grey[300],),
+                      icon: Icon(Icons.notifications,size: 30,color: blue,),
                     )
                   ],
                 ),
@@ -88,8 +88,9 @@ class _BookingHisttoryState extends State<BookingHisttory> {
                                   itemBuilder: (BuildContext context,int index){
                                     return Container(
 
-                                      margin: EdgeInsets.only(top: 10),
-                                      height: height*0.12,
+                                      margin: EdgeInsets.fromLTRB(0,10,0,0),
+                                      //height: height*0.2,
+                                      padding: EdgeInsets.all(10),
                                       decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(20),
                                           color: Colors.white,
@@ -134,38 +135,46 @@ class _BookingHisttoryState extends State<BookingHisttory> {
                                                   ],
                                                 ),
                                                 SizedBox(height: 5,),
-                                                Text("Psychologist",style: TextStyle(color: blue,fontWeight: FontWeight.w300,fontSize: 10),),
+                                                Text("Female",style: TextStyle(color: blue,fontWeight: FontWeight.w300,fontSize: 10),),
                                                 SizedBox(height: 10,),
 
                                                 Row(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                   children: [
-                                                    Expanded(
-                                                      flex: 1,
-                                                      child:Row(
-                                                        children: [
-                                                          Icon(Icons.calendar_today_rounded,color: Colors.grey,size: 15,),
-                                                          Text("20 Feb, 2020",style: TextStyle(color: blue,fontWeight: FontWeight.w300,fontSize: 10),),
-                                                        ],
-                                                      ),
+                                                    Text("Date",style: TextStyle(color: Colors.grey[500],fontWeight: FontWeight.w300,fontSize: 10),),
+                                                    Text("20 Feb, 2021",style: TextStyle(color: Colors.grey[800],fontWeight: FontWeight.w300,fontSize: 10),),
+
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  children: [
+                                                    Text("Duration",style: TextStyle(color: Colors.grey[500],fontWeight: FontWeight.w300,fontSize: 10),),
+                                                    Text("6:30 PM - 7:00 PM",style: TextStyle(color: Colors.grey[800],fontWeight: FontWeight.w300,fontSize: 10),),
+
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  children: [
+                                                    Text("Booking ID",style: TextStyle(color: Colors.grey[500],fontWeight: FontWeight.w300,fontSize: 10),),
+                                                    Text("00001",style: TextStyle(color: Colors.grey[800],fontWeight: FontWeight.w300,fontSize: 10),),
+
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  children: [
+                                                    Row(
+                                                      children: [
+                                                        Text("Total Payment",style: TextStyle(color: Colors.grey[500],fontWeight: FontWeight.w300,fontSize: 10),),
+                                                        SizedBox(width: 2,),
+                                                        Text("\$200",style: TextStyle(color: Colors.green,fontWeight: FontWeight.w300,fontSize: 10),),
+
+                                                      ],
                                                     ),
-                                                    Expanded(
-                                                      flex: 1,
-                                                      child:Row(
-                                                        children: [
-                                                          Icon(Icons.timer,color: Colors.grey,size: 15,),
-                                                          Text("2 Hours",style: TextStyle(color: blue,fontWeight: FontWeight.w300,fontSize: 10),),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    Expanded(
-                                                      flex: 1,
-                                                      child:Row(
-                                                        children: [
-                                                          Icon(Icons.monetization_on,color: Colors.grey,size: 15,),
-                                                          Text("\$200",style: TextStyle(color: blue,fontWeight: FontWeight.w300,fontSize: 10),),
-                                                        ],
-                                                      ),
-                                                    )
+                                                    Text("Paid",style: TextStyle(color: Colors.grey[800],fontWeight: FontWeight.w300,fontSize: 10),),
+
                                                   ],
                                                 )
 
@@ -189,8 +198,9 @@ class _BookingHisttoryState extends State<BookingHisttory> {
                                       },
                                       child: Container(
 
-                                        margin: EdgeInsets.only(top: 10),
-                                        height: height*0.12,
+                                        margin: EdgeInsets.fromLTRB(0,10,0,0),
+                                        //height: height*0.2,
+                                        padding: EdgeInsets.all(10),
                                         decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(20),
                                             color: Colors.white,
@@ -235,38 +245,46 @@ class _BookingHisttoryState extends State<BookingHisttory> {
                                                     ],
                                                   ),
                                                   SizedBox(height: 5,),
-                                                  Text("Psychologist",style: TextStyle(color: blue,fontWeight: FontWeight.w300,fontSize: 10),),
+                                                  Text("Female",style: TextStyle(color: blue,fontWeight: FontWeight.w300,fontSize: 10),),
                                                   SizedBox(height: 10,),
 
                                                   Row(
+                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                     children: [
-                                                      Expanded(
-                                                        flex: 1,
-                                                        child:Row(
-                                                          children: [
-                                                            Icon(Icons.calendar_today_rounded,color: Colors.grey,size: 15,),
-                                                            Text("20 Feb, 2020",style: TextStyle(color: blue,fontWeight: FontWeight.w300,fontSize: 10),),
-                                                          ],
-                                                        ),
+                                                      Text("Date",style: TextStyle(color: Colors.grey[500],fontWeight: FontWeight.w300,fontSize: 10),),
+                                                      Text("20 Feb, 2021",style: TextStyle(color: Colors.grey[800],fontWeight: FontWeight.w300,fontSize: 10),),
+
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                    children: [
+                                                      Text("Duration",style: TextStyle(color: Colors.grey[500],fontWeight: FontWeight.w300,fontSize: 10),),
+                                                      Text("6:30 PM - 7:00 PM",style: TextStyle(color: Colors.grey[800],fontWeight: FontWeight.w300,fontSize: 10),),
+
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                    children: [
+                                                      Text("Booking ID",style: TextStyle(color: Colors.grey[500],fontWeight: FontWeight.w300,fontSize: 10),),
+                                                      Text("00001",style: TextStyle(color: Colors.grey[800],fontWeight: FontWeight.w300,fontSize: 10),),
+
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                    children: [
+                                                      Row(
+                                                        children: [
+                                                          Text("Total Payment",style: TextStyle(color: Colors.grey[500],fontWeight: FontWeight.w300,fontSize: 10),),
+                                                          SizedBox(width: 2,),
+                                                          Text("\$200",style: TextStyle(color: Colors.green,fontWeight: FontWeight.w300,fontSize: 10),),
+
+                                                        ],
                                                       ),
-                                                      Expanded(
-                                                        flex: 1,
-                                                        child:Row(
-                                                          children: [
-                                                            Icon(Icons.timer,color: Colors.grey,size: 15,),
-                                                            Text("2 Hours",style: TextStyle(color: blue,fontWeight: FontWeight.w300,fontSize: 10),),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                      Expanded(
-                                                        flex: 1,
-                                                        child:Row(
-                                                          children: [
-                                                            Icon(Icons.monetization_on,color: Colors.grey,size: 15,),
-                                                            Text("\$200",style: TextStyle(color: blue,fontWeight: FontWeight.w300,fontSize: 10),),
-                                                          ],
-                                                        ),
-                                                      )
+                                                      Text("Paid",style: TextStyle(color: Colors.grey[800],fontWeight: FontWeight.w300,fontSize: 10),),
+
                                                     ],
                                                   )
 
@@ -276,7 +294,7 @@ class _BookingHisttoryState extends State<BookingHisttory> {
                                           ],
                                         ),
 
-                                      ),
+                                      )
                                     );
                                   },
                                 ),

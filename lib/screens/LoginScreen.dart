@@ -1,9 +1,15 @@
+import 'package:doctor_app/screens/BookAppointmentScreen.dart';
+import 'package:doctor_app/screens/HomeScreen.dart';
+import 'package:doctor_app/screens/chats.dart';
+import 'package:doctor_app/screens/reviews.dart';
+import 'package:doctor_app/screens/schedule.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:doctor_app/utils/constants.dart';
 
+import 'BookingHistoryScreen.dart';
 import 'ForgotPasswordScreen.dart';
 import 'MainScreen.dart';
 import 'RegisterScreen.dart';
@@ -157,10 +163,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 50.0,
                 child: RaisedButton(
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) => MainScreen()));
+                    print( "dsd");
+                    //Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => BookingHisttory()));
+                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MainScreen()));
                   },
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(80.0)),
