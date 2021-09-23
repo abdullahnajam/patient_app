@@ -1,4 +1,5 @@
 import 'package:doctor_app/screens/LoginScreen.dart';
+import 'package:doctor_app/screens/splash.dart';
 import 'package:doctor_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
           primaryColor: Colors.white,
           textTheme: TEXT_THEME_DEFAULT
       ),
-      home: LoginScreen(),
+      home: SplashScreen(),
     );
   }
 }

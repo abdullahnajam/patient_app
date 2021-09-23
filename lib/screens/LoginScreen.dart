@@ -3,6 +3,7 @@ import 'package:doctor_app/screens/HomeScreen.dart';
 import 'package:doctor_app/screens/chats.dart';
 import 'package:doctor_app/screens/reviews.dart';
 import 'package:doctor_app/screens/schedule.dart';
+import 'package:doctor_app/screens/splash.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -164,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: RaisedButton(
                   onPressed: () {
                     print( "dsd");
-                    //Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => BookingHisttory()));
+                    //Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => SplashScreen()));
                     Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MainScreen()));
                   },
                   shape: RoundedRectangleBorder(
