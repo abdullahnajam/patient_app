@@ -141,6 +141,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     filled: true,
+                    prefixIcon: Icon(Icons.email_outlined),
                     hintStyle: TextStyle(color: COLOR_GREY, fontSize: 14),
                     hintText: "Email",
                     fillColor: Colors.white70,

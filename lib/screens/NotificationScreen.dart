@@ -33,7 +33,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
               statusBarIconBrightness: Brightness.light
           ),
           child: ListView(
-            padding: EdgeInsets.fromLTRB(22, 52, 22, 24),
+            padding: EdgeInsets.fromLTRB(10, 42, 12, 14),
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -89,7 +89,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                   ),
 
                   SizedBox(
-                    height: 15,
+                    height: 5,
                   ),
                   Card(
                     child: Padding(
@@ -114,7 +114,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                   ),
 
                   SizedBox(
-                    height: 15,
+                    height: 5,
                   ),
                   Card(
                     child: Padding(
@@ -139,7 +139,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                   ),
 
                   SizedBox(
-                    height: 15,
+                    height: 5,
                   ),
                   Card(
                     child: Padding(

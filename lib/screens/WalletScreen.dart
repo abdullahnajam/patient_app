@@ -34,7 +34,7 @@ class _WalletScreenState extends State<WalletScreen> {
               statusBarIconBrightness: Brightness.light
           ),
           child: ListView(
-            padding: EdgeInsets.fromLTRB(22, 52, 22, 24),
+            padding: EdgeInsets.fromLTRB(10, 42, 12, 14),
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -64,7 +64,7 @@ class _WalletScreenState extends State<WalletScreen> {
                 ],
               ),
               SizedBox(
-                height: 32,
+                height: 16,
               ),
               Container(
                 child: Stack(
@@ -140,7 +140,7 @@ class _WalletScreenState extends State<WalletScreen> {
                 ),
               ),
               SizedBox(
-                height: 30,
+                height: 16,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -177,7 +177,7 @@ class _WalletScreenState extends State<WalletScreen> {
               Column(
                 children: [
                   SizedBox(
-                    height: 15,
+                    height: 5,
                   ),
                   Card(
                     child: Padding(
@@ -202,7 +202,7 @@ class _WalletScreenState extends State<WalletScreen> {
                     ),
 
                   SizedBox(
-                    height: 15,
+                    height: 5,
                   ),
                   Card(
                     child: Padding(
@@ -227,7 +227,7 @@ class _WalletScreenState extends State<WalletScreen> {
                   ),
 
                   SizedBox(
-                    height: 15,
+                    height: 5,
                   ),
                   Card(
                     child: Padding(
@@ -252,7 +252,7 @@ class _WalletScreenState extends State<WalletScreen> {
                   ),
 
                   SizedBox(
-                    height: 15,
+                    height: 5,
                   ),
                   Card(
                     child: Padding(

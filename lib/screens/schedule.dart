@@ -1,8 +1,9 @@
-import 'package:date_format/date_format.dart';
 import 'package:doctor_app/screens/sideMenu.dart';
 import 'package:doctor_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
+import 'MainScreen.dart';
 
 class Schedule extends StatefulWidget {
   const Schedule({Key? key}) : super(key: key);
@@ -33,13 +34,46 @@ class _ScheduleState extends State<Schedule> {
                       )
                   ),
                   height: height*0.35,
-                  child: Image.asset("assets/placeholder/doctor.png"),
+                  child: Container(
+                      margin: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * 0.070),
+                      height: MediaQuery.of(context).size.height -
+                          MediaQuery.of(context).size.height * 0.105,
+                      child: ListView(children: [
+                        Container(
+                          height: width * 0.4,
+                          margin:
+                          EdgeInsets.only(left: width * 0.3, right: width * 0.3),
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 5,
+                                  blurRadius: 7,
+                                  offset: Offset(0, 3), // changes position of shadow
+                                ),
+                              ],
+                              borderRadius: BorderRadius.circular(20),
+                              border: Border.all(color: Colors.white, width: 2),
+                              image: DecorationImage(
+                                  image: AssetImage("assets/placeholder/doctor.png"),
+                                  fit: BoxFit.cover)),
+                        ),
+                      ]
+                      )
+                  ),
                 ),
                 Align(
                   alignment: Alignment.topLeft,
-                  child: Container(
-                    margin: EdgeInsets.all(margin),
-                    child:Icon(Icons.arrow_back_ios_rounded,color: Colors.white,)
+                  child: InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MainScreen()));
+                    },
+                    child: Container(
+                      margin: EdgeInsets.all(margin),
+                      child:Icon(Icons.arrow_back_ios_rounded,color: Colors.white,)
+                    ),
                   ),
                 ),
                 Align(
@@ -124,19 +158,11 @@ class _ScheduleState extends State<Schedule> {
               ],
             ),
             Container(
-              height: 50,
+              height: 60,
               margin: EdgeInsets.fromLTRB(margin,margin,margin,0),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 1,
-                    blurRadius: 1,
-                    offset: Offset(0, 1), // changes position of shadow
-                  ),
-                ],
               ),
               child:Row(
                 children: [
@@ -152,19 +178,11 @@ class _ScheduleState extends State<Schedule> {
               ),
             ),
             Container(
-              height: 50,
-              margin: EdgeInsets.fromLTRB(margin,margin,margin,0),
+              height: 60,
+              margin: EdgeInsets.fromLTRB(margin,10,margin,0),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 1,
-                    blurRadius: 1,
-                    offset: Offset(0, 1), // changes position of shadow
-                  ),
-                ],
               ),
               child:Row(
                 children: [
@@ -180,19 +198,11 @@ class _ScheduleState extends State<Schedule> {
               ),
             ),
             Container(
-              height: 50,
-              margin: EdgeInsets.fromLTRB(margin,margin,margin,0),
+              height: 60,
+              margin: EdgeInsets.fromLTRB(margin,10,margin,0),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 1,
-                    blurRadius: 1,
-                    offset: Offset(0, 1), // changes position of shadow
-                  ),
-                ],
               ),
               child:Row(
                 children: [
@@ -209,7 +219,7 @@ class _ScheduleState extends State<Schedule> {
             ),
             Container(
               margin: EdgeInsets.fromLTRB(margin,margin,margin,0),
-              child: Text("Schedule",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w400,fontSize: 20),),
+              child: Text("Schedule",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w800,fontSize: 22),),
 
             ),
             Container(
@@ -221,7 +231,7 @@ class _ScheduleState extends State<Schedule> {
                     child: CircleAvatar(
                       radius: 30,
                       backgroundColor: blue,
-                      child: Text("M",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 25),),
+                      child: Text("M",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 22),),
                     ),
                   ),
                   Expanded(
@@ -229,7 +239,7 @@ class _ScheduleState extends State<Schedule> {
                     child: CircleAvatar(
                       radius: 30,
                       backgroundColor: blue,
-                      child: Text("T",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 25),),
+                      child: Text("T",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 22),),
                     ),
                   ),
                   Expanded(
@@ -237,7 +247,7 @@ class _ScheduleState extends State<Schedule> {
                     child: CircleAvatar(
                       radius: 30,
                       backgroundColor: blue,
-                      child: Text("W",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 25),),
+                      child: Text("W",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 22),),
                     ),
                   ),
                   Expanded(
@@ -245,7 +255,7 @@ class _ScheduleState extends State<Schedule> {
                     child: CircleAvatar(
                       radius: 30,
                       backgroundColor: blue,
-                      child: Text("T",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 25),),
+                      child: Text("T",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 22),),
                     ),
                   ),
                   Expanded(
@@ -253,7 +263,7 @@ class _ScheduleState extends State<Schedule> {
                     child: CircleAvatar(
                       radius: 30,
                       backgroundColor: blue,
-                      child: Text("F",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 25),),
+                      child: Text("F",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 22),),
                     ),
                   ),
                 ],
@@ -493,7 +503,7 @@ class _ScheduleState extends State<Schedule> {
             ),
             Container(
               height: 50,
-              margin: EdgeInsets.fromLTRB(width*0.15, margin, width*0.15, margin),
+              margin: EdgeInsets.fromLTRB(width*0.15, 10, width*0.15, 10),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   gradient: LinearGradient(colors: [COLOR_LIGHT_PURPLE, COLOR_LIGHT_BLUE],
@@ -517,10 +527,10 @@ class _ScheduleState extends State<Schedule> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Message for doctor",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 18),),
+                  Text("Message for doctor",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 20),),
                   SizedBox(height: 10,),
-                  Text("It is a long established  fact that a reader will bedistracted but also the leap into electronic typesetting"
-                    ,style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 12),),
+                  Text("It is a long established  fact that a reader will be distracted but also the leap into electronic typesetting"
+                    ,style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 14),),
                 ],
               )
             )

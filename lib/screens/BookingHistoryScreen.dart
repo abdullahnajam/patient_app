@@ -98,12 +98,12 @@ class _BookingHisttoryState extends State<BookingHisttory> {
                                       ),
                                       child: Row(
                                         //mainAxisAlignment: MainAxisAlignment.start,
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Container(
-                                            margin: EdgeInsets.only(left: 10,right: 10),
-                                            height: MediaQuery.of(context).size.height*0.07,
-                                            width: MediaQuery.of(context).size.height*0.07,
+                                            margin: EdgeInsets.only(left: 10,right: 20),
+                                            height: MediaQuery.of(context).size.height*0.08,
+                                            width: MediaQuery.of(context).size.height*0.08,
                                             decoration: BoxDecoration(
                                                 borderRadius: BorderRadius.circular(360),
                                                 image: DecorationImage(
@@ -208,12 +208,12 @@ class _BookingHisttoryState extends State<BookingHisttory> {
                                         ),
                                         child: Row(
                                           //mainAxisAlignment: MainAxisAlignment.start,
-                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Container(
-                                              margin: EdgeInsets.only(left: 10,right: 10),
-                                              height: MediaQuery.of(context).size.height*0.07,
-                                              width: MediaQuery.of(context).size.height*0.07,
+                                              margin: EdgeInsets.only(left: 10,right: 20),
+                                              height: MediaQuery.of(context).size.height*0.08,
+                                              width: MediaQuery.of(context).size.height*0.08,
                                               decoration: BoxDecoration(
                                                   borderRadius: BorderRadius.circular(360),
                                                   image: DecorationImage(

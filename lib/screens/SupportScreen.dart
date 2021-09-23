@@ -47,7 +47,7 @@ class _SupportScreenState extends State<SupportScreen> {
               statusBarIconBrightness: Brightness.light
           ),
           child: ListView(
-            padding: EdgeInsets.fromLTRB(22, 52, 22, 24),
+            padding: EdgeInsets.fromLTRB(10, 42, 12, 14),
             children: [
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,

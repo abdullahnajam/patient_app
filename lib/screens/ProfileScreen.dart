@@ -1,21 +1,26 @@
+import 'package:date_format/date_format.dart';
+import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
+import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:doctor_app/utils/constants.dart';
+import 'package:intl/intl.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+import 'package:toggle_switch/toggle_switch.dart';
 import 'BookAppointmentScreen.dart';
 import 'ChatScreen.dart';
+import 'MainScreen.dart';
 
 class DoctorProfile extends StatefulWidget {
   const DoctorProfile({Key? key}) : super(key: key);
-
 
   @override
   _DoctorProfileState createState() => _DoctorProfileState();
 }
 
 class _DoctorProfileState extends State<DoctorProfile> {
-  String dropdownValue = '30 min';
-
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -25,7 +30,12 @@ class _DoctorProfileState extends State<DoctorProfile> {
       body: Stack(
         children: [
           Container(
-            color: primary,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [COLOR_LIGHT_BLUE,COLOR_LIGHT_PURPLE],
+                end: Alignment.centerLeft,
+                begin: Alignment.centerRight,
+              ),),
             height: MediaQuery.of(context).size.height * 0.3,
             padding: EdgeInsets.only(
               top: MediaQuery.of(context).size.height * 0.08,
@@ -44,13 +54,16 @@ class _DoctorProfileState extends State<DoctorProfile> {
                     backgroundColor: Colors.grey[200],
                     child: Icon(
                       Icons.arrow_back_ios_rounded,
-                      color: Colors.grey,
+                      color: COLOR_DARK_BLUE,
                     ),
                   ),
                 ),
-                Icon(
-                  Icons.favorite,
-                  color: Colors.red,
+                Text(
+                  "Update",
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: COLOR_WHITE),
                 )
               ],
             ),
@@ -86,15 +99,13 @@ class _DoctorProfileState extends State<DoctorProfile> {
                           offset: Offset(0, 3), // changes position of shadow
                         ),
                       ],
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(100),
                       border: Border.all(color: Colors.white, width: 2),
                       image: DecorationImage(
                           image: AssetImage("assets/placeholder/doctor.png"),
                           fit: BoxFit.cover)),
                 ),
-              ]
-              )
-          ),
+              ])),
           Container(
             margin: EdgeInsets.only(
                 top: MediaQuery.of(context).size.height * 0.380),
@@ -104,525 +115,344 @@ class _DoctorProfileState extends State<DoctorProfile> {
               children: [
                 Column(
                   children: [
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Text(
-                      "Dr. Navida Navara",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 18),
-                    ),
-                    Text(
-                      "Psychologist",
-                      style: TextStyle(
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w300,
-                          fontSize: 15),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        RatingBar(
-                          initialRating: 4,
-                          direction: Axis.horizontal,
-                          allowHalfRating: true,
-                          itemCount: 5,
-                          ratingWidget: RatingWidget(
-                            full: Icon(Icons.star, color: COLOR_YELLOW),
-                            half: Icon(Icons.star_half, color: COLOR_YELLOW),
-                            empty: Icon(
-                              Icons.star_border,
-                              color: COLOR_YELLOW,
-                            ),
-                          ),
-                          ignoreGestures: true,
-                          itemSize: 20,
-                          itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
-                          onRatingUpdate: (rating) {
-                            print(rating);
-                          },
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          "4.9",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 15),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          "(128 Reviews)",
-                          style: TextStyle(
-                              color: Colors.grey,
-                              fontWeight: FontWeight.w300,
-                              fontSize: 12),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: 50,
-                          width: 50,
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Color(0xffeae0df)),
-                          child: Image.asset(
-                            'assets/icons/phone.png',
-                            width: 50,
-                            height: 50,
-                            fit: BoxFit.cover,
-                            color: Color(0xffef6b61),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 30,
-                        ),
-                        Container(
-                          height: 50,
-                          width: 50,
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Color(0xffe4e7f8)),
-                          child: Image.asset(
-                            'assets/icons/call.png',
-                            width: 50,
-                            height: 50,
-                            fit: BoxFit.cover,
-                            color: Color(0xff3253f0),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 30,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        ChatScreen()));
-                          },
-                          child: Container(
-                            height: 50,
-                            width: 50,
-                            padding: EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Color(0xfffaefdc)),
-                            child: Image.asset(
-                              'assets/icons/chat.png',
-                              width: 50,
-                              height: 50,
-                              fit: BoxFit.cover,
-                              color: Color(0xfffeaf39),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
                     Container(
-                      margin: EdgeInsets.all(margin),
-                      child: Divider(
-                        color: Colors.grey[300],
-                      ),
-                    ),
-                    Container(
-                      alignment: Alignment.center,
-                      child: Text(
-                        "Lorem ipsum, or lipsum as it is \ndummy text used in laying out print",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w300,
-                          fontSize: 15,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(
-                          left: margin, right: margin, top: margin),
-                      decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 2,
-                              blurRadius: 2,
-                              offset:
-                                  Offset(0, 2), // changes position of shadow
-                            ),
-                          ],
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: Color(0xffe0e0e0)),
-                          color: Colors.white),
-                      child: ListTile(
-                        leading: Container(
-                          height: MediaQuery.of(context).size.height * 0.1,
-                          width: MediaQuery.of(context).size.height * 0.08,
-                          decoration: BoxDecoration(
-                              gradient: colorGradient,
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Padding(
-                            padding: EdgeInsets.all(16.0),
-                            child: Image.asset("assets/icons/doc_availability.png",width: 20,height: 20,),
-                          )
+                        height: MediaQuery.of(context).size.height *1.55,
+                        child: Column(
 
-                        ),
-                        title: Text(
-                          "Availability",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w300,
-                              fontSize: 14),
-                        ),
-                        subtitle: Text(
-                          "08:00 AM - 05:00 AM",
-                          style: TextStyle(
-                              color: Colors.grey,
-                              fontWeight: FontWeight.w300,
-                              fontSize: 12),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(
-                          left: margin, right: margin, top: margin),
-                      decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 2,
-                              blurRadius: 2,
-                              offset:
-                                  Offset(0, 2), // changes position of shadow
-                            ),
-                          ],
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: Color(0xffe0e0e0)),
-                          color: Colors.white),
-                      child: ListTile(
-                        leading: Container(
-                          height: MediaQuery.of(context).size.height * 0.1,
-                          width: MediaQuery.of(context).size.height * 0.08,
-                          decoration: BoxDecoration(
-                              gradient: colorGradient,
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Padding(
-                            padding: EdgeInsets.all(16.0),
-                            child: Image.asset("assets/icons/doc_location.png",width: 20,height: 20,),
-                          )
-
-                        ),
-                        title: Text(
-                          "Location",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w300,
-                              fontSize: 14),
-                        ),
-                        subtitle: Text(
-                          "Miami , USA",
-                          style: TextStyle(
-                              color: Colors.grey,
-                              fontWeight: FontWeight.w300,
-                              fontSize: 12),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(
-                          left: margin, top: margin, bottom: 5),
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        "Session Fee",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16),
-                      ),
-                    ),
-                    Container(
-                        margin: EdgeInsets.only(left: margin),
-                        child: Row(
-                          children: [
-                            Column(
+                            children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(left: 8.0, right: 8.0),
+                            child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Text(
-                                  "Duration",
+                                Center(
+                                    child: Text(
+                                  "40%",
                                   style: TextStyle(
-                                      color: Colors.grey,
-                                      fontWeight: FontWeight.w300,
-                                      fontSize: 15),
+                                    fontSize: 16,
+                                    color: Colors.grey,
+                                  ),
+                                )),
+                                Padding(
+                                  padding: EdgeInsets.all(10),
+                                  child: LinearProgressIndicator(
+                                    value: 0.4,
+                                  ),
+                                ),
+                                Center(
+                                  child: Container(
+                                    margin: EdgeInsets.symmetric(
+                                      vertical: 10,
+                                    ),
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(30.0),
+                                        border: Border.all(
+                                            color: Colors.grey[500]!)),
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                          left: 15,
+                                          right: 15,
+                                          top: 4,
+                                          bottom: 4),
+                                      child: Text(
+                                        "Complete Your Profile",
+                                        style: TextStyle(
+                                            color: COLOR_DARK_BLUE,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 14),
+                                      ),
+                                    ),
+                                  ),
                                 ),
                                 SizedBox(
-                                  height: 3,
+                                  height: 16,
                                 ),
-                                Container(
-                                  height: 50,
-                                  alignment: Alignment.center,
-                                  padding: EdgeInsets.only(
-                                      left: 20, right: 20, top: 8, bottom: 8),
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      gradient: LinearGradient(
-                                        begin: Alignment.centerLeft,
-                                        end: Alignment.centerRight,
-                                        colors: [
-                                          Color(0xffbb46ea),
-                                          Color(0xff5c7cf9),
-                                        ],
-                                      )),
-                                  child: DropdownButton<String>(
-                                    value: dropdownValue,
-                                    dropdownColor: COLOR_GREY,
-                                    elevation: 16,
-                                    style: const TextStyle(color: COLOR_WHITE),
-                                    onChanged: (String? newValue) {
-                                      setState(() {
-                                        dropdownValue = newValue!;
-                                      });
-                                    },
-                                    items: <String>['30 min', '45 min']
-                                        .map<DropdownMenuItem<String>>((String value) {
-                                      return DropdownMenuItem<String>(
-                                        value: value,
-                                        child: Text(value,
-                                          style: TextStyle(
-                                            fontSize: 15,
-                                          ),),
-                                      );
-                                    }).toList(),
-                                  ),
-                                  // Text(
-                                  //   "30 min",
-                                  //   style: TextStyle(
-                                  //       color: Colors.white,
-                                  //       fontWeight: FontWeight.w300,
-                                  //       fontSize: 18),
-                                  // ),
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              width: 30,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Price",
+                                TextField(
                                   style: TextStyle(
-                                      color: Colors.grey,
-                                      fontWeight: FontWeight.w300,
-                                      fontSize: 15),
+                                      color: COLOR_GREY, fontSize: 14),
+                                  cursorColor: COLOR_GREY,
+                                  decoration: InputDecoration(
+                                      border: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                      ),
+                                      filled: true,
+                                      prefixIcon: Icon(Icons.person),
+                                      hintStyle: TextStyle(
+                                          color: COLOR_GREY, fontSize: 14),
+                                      hintText: "Name",
+                                      fillColor: Colors.white70,
+                                      labelStyle: TextStyle(color: COLOR_GREY)),
                                 ),
                                 SizedBox(
-                                  height: 3,
+                                  height: 16,
+                                ),
+                                TextField(
+                                  style: TextStyle(
+                                      color: COLOR_GREY, fontSize: 14),
+                                  cursorColor: COLOR_GREY,
+                                  decoration: InputDecoration(
+                                      border: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                      ),
+                                      filled: true,
+                                      prefixIcon: Icon(Icons.email_outlined),
+                                      hintStyle: TextStyle(
+                                          color: COLOR_GREY, fontSize: 14),
+                                      hintText: "Email",
+                                      fillColor: Colors.white70,
+                                      labelStyle: TextStyle(color: COLOR_GREY)),
+                                ),
+                                SizedBox(
+                                  height: 16,
+                                ),
+                                InternationalPhoneNumberInput(
+                                  textStyle: TextStyle(
+                                      color: COLOR_GREY, fontSize: 14),
+                                  onInputChanged: (PhoneNumber number) {
+                                    print(number.phoneNumber);
+                                  },
+                                  onInputValidated: (bool value) {
+                                    print(value);
+                                  },
+                                  selectorConfig: SelectorConfig(
+                                    selectorType:
+                                        PhoneInputSelectorType.DROPDOWN,
+                                  ),
+                                  ignoreBlank: false,
+                                  autoValidateMode: AutovalidateMode.disabled,
+                                  selectorTextStyle:
+                                      TextStyle(color: Colors.black),
+                                  formatInput: false,
+                                  keyboardType: TextInputType.numberWithOptions(
+                                      signed: true, decimal: true),
+                                  inputBorder: OutlineInputBorder(),
+                                  onSaved: (PhoneNumber number) {
+                                    print('On Saved: $number');
+                                  },
+                                ),
+                                SizedBox(
+                                  height: 16,
+                                ),
+                                DropdownSearch<String>(
+                                  validator: (v) =>
+                                      v == null ? "required field" : null,
+                                  hint: "Select Speciality",
+                                  mode: Mode.MENU,
+                                  showSelectedItems: true,
+                                  items: [
+                                    "Speciality 1",
+                                    "Speciality 2",
+                                    "Speciality 3",
+                                    'Speciality 4'
+                                  ],
+                                  showClearButton: true,
+                                  onChanged: print,
+                                  clearButtonSplashRadius: 20,
+                                ),
+                                SizedBox(
+                                  height: 16,
+                                ),
+                                DropdownSearch<String>(
+                                  validator: (v) =>
+                                      v == null ? "required field" : null,
+                                  hint: "Select Category",
+                                  mode: Mode.MENU,
+                                  showSelectedItems: true,
+                                  items: [
+                                    "Category 1",
+                                    "Category 2",
+                                    "Category 3",
+                                    'Category 4'
+                                  ],
+                                  showClearButton: true,
+                                  onChanged: print,
+                                  clearButtonSplashRadius: 20,
+                                ),
+                                SizedBox(
+                                  height: 16,
+                                ),
+                                DropdownSearch<String>(
+                                  validator: (v) =>
+                                      v == null ? "required field" : null,
+                                  hint: "Select Experience",
+                                  mode: Mode.MENU,
+                                  showSelectedItems: true,
+                                  items: [
+                                    "Experience 1",
+                                    "Experience 2",
+                                    "Experience 3",
+                                    'Experience 4'
+                                  ],
+                                  showClearButton: true,
+                                  onChanged: print,
+                                  clearButtonSplashRadius: 20,
+                                ),
+                                SizedBox(
+                                  height: 16,
+                                ),
+                                DropdownSearch<String>(
+                                  validator: (v) =>
+                                      v == null ? "required field" : null,
+                                  hint: "Select Country",
+                                  mode: Mode.MENU,
+                                  showSelectedItems: true,
+                                  items: [
+                                    "County 1",
+                                    "County 2",
+                                    "County 3",
+                                    'County 4'
+                                  ],
+                                  showClearButton: true,
+                                  onChanged: print,
+                                  clearButtonSplashRadius: 20,
+                                ),
+                                SizedBox(
+                                  height: 16,
                                 ),
                                 Container(
-                                  height: 50,
-                                  alignment: Alignment.center,
-                                  padding: EdgeInsets.only(
-                                      left: 20, right: 20, top: 10, bottom: 10),
                                   decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      gradient: LinearGradient(
-                                        begin: Alignment.centerLeft,
-                                        end: Alignment.centerRight,
-                                        colors: [
-                                          Color(0xff3ac5e4),
-                                          Color(0xff359efa),
-                                        ],
-                                      )),
-                                  child: Text(
-                                    "20 USD",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w300,
-                                        fontSize: 15),
-                                  ),
-                                )
-                              ],
-                            )
-                          ],
-                        )),
-                    Container(
-                      margin: EdgeInsets.only(top: 5, left: margin,right: margin,bottom: 5),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Reviews",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16),
-                          ),
-                          Text(
-                            "More",
-                            style: TextStyle(
-                                color: blue,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      margin:
-                          EdgeInsets.only(top: 10, left: margin, right: margin),
-                      height: height * 0.12,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.white,
-                          border: Border.all(color: primary, width: 0.8)),
-                      child: Container(
-                        child: Row(
-                          //mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(left: 10, right: 10),
-                              height: MediaQuery.of(context).size.height * 0.07,
-                              width: MediaQuery.of(context).size.height * 0.07,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(360),
-                                  image: DecorationImage(
-                                      image: AssetImage(placeHolderLandScape),
-                                      fit: BoxFit.cover)),
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "John Smith",
+                                      borderRadius: BorderRadius.circular(5.0),
+                                      border: Border.all(color: COLOR_GREY)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(5.0),
+                                    child: DateTimeField(
+                                      format: DateFormat("dd-MM-yyyy"),
+                                      decoration: InputDecoration(
+                                        hintText: "\t DD-MM-YYYY",
+                                        border: InputBorder.none,
+                                      ),
                                       style: TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w500,
+                                        fontSize: 14,
+                                        color: COLOR_GREY,
+
+                                      ),
+                                      onShowPicker: (context, currentValue) {
+                                        return showDatePicker(
+                                            context: context,
+                                            firstDate: DateTime(1900),
+                                            initialDate:
+                                                currentValue ?? DateTime.now(),
+                                            lastDate: DateTime(2100));
+                                      },
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 16,
+                                ),
+                                TextField(
+                                  style: TextStyle(
+                                      color: COLOR_GREY, fontSize: 14),
+                                  cursorColor: COLOR_GREY,
+                                  decoration: InputDecoration(
+                                      border: OutlineInputBorder(
+                                        borderRadius:
+                                        BorderRadius.circular(5.0),
+                                      ),
+                                      filled: true,
+                                      prefixIcon: Icon(Icons.school),
+                                      hintStyle: TextStyle(
+                                          color: COLOR_GREY, fontSize: 14),
+                                      hintText: "Education",
+                                      fillColor: Colors.white70,
+                                      labelStyle: TextStyle(color: COLOR_GREY)),
+                                ),
+                                SizedBox(
+                                  height: 16,
+                                ),
+                                TextField(
+                                  style: TextStyle(
+                                      color: COLOR_GREY, fontSize: 14),
+                                  cursorColor: COLOR_GREY,
+                                  decoration: InputDecoration(
+                                      border: OutlineInputBorder(
+                                        borderRadius:
+                                        BorderRadius.circular(5.0),
+                                      ),
+                                      filled: true,
+                                      prefixIcon: Icon(Icons.location_pin),
+                                      hintStyle: TextStyle(
+                                          color: COLOR_GREY, fontSize: 14),
+                                      hintText: "Current Work Place",
+                                      fillColor: Colors.white70,
+                                      labelStyle: TextStyle(color: COLOR_GREY)),
+                                ),
+                                SizedBox(
+                                  height: 16,
+                                ),
+                                Text("Fees", style: TextStyle( fontSize: 18, fontWeight: FontWeight.bold, color: COLOR_BLACK)),
+                                SizedBox(
+                                  height: 16,
+                                ),
+                                Center(
+                                  child: ToggleSwitch(
+                                    minWidth: double.infinity,
+                                    minHeight: 60,
+                                    cornerRadius: 10.0,
+                                    activeBgColors: [[Colors.purple[800]!], [Colors.purple[800]!]],
+                                    activeFgColor: Colors.white,
+                                    inactiveBgColor: Colors.white70,
+                                    inactiveFgColor: Colors.black54,
+                                    initialLabelIndex: 1,
+                                    totalSwitches: 2,
+                                    labels: ['Sudan', 'Out of Sudan'],
+                                    radiusStyle: true,
+                                    onToggle: (index) {
+                                      print('switched to: $index');
+                                    },
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.symmetric(
+                                    vertical: 16,
+                                  ),
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                      borderRadius:
+                                      BorderRadius.circular(5.0),
+                                      border: Border.all(
+                                          color: Colors.grey[500]!),
+                                    gradient: LinearGradient(
+                                    colors: [COLOR_LIGHT_PURPLE,COLOR_LIGHT_BLUE],
+                                    end: Alignment.centerLeft,
+                                    begin: Alignment.centerRight,
+                                  ),),
+                                  child: Padding(
+                                    padding: EdgeInsets.only(
+                                        left: 25,
+                                        right: 15,
+                                        top: 14,
+                                        bottom: 14),
+                                    child: Text(
+                                      "About Me",
+                                      style: TextStyle(
+                                          color: COLOR_WHITE,
                                           fontSize: 16),
                                     ),
-                                    SizedBox(
-                                      width: 10,
+                                  ),
+                                ),
+                                Card(
+                                  color: Colors.grey[300],
+                                  child: Padding(
+                                    padding: EdgeInsets.all(10.0),
+                                    child: TextField(
+                                      maxLines: 6,
+                                      decoration: InputDecoration.collapsed(hintText: "Write here"),
+                                      style: TextStyle(
+                                          color: COLOR_BLACK,
+                                          fontSize: 14
+                                      ),
                                     ),
-                                    Row(
-                                      children: [
-                                        RatingBar(
-                                          initialRating: 4,
-                                          direction: Axis.horizontal,
-                                          allowHalfRating: true,
-                                          itemCount: 5,
-                                          ratingWidget: RatingWidget(
-                                            full: Icon(Icons.star,
-                                                color: COLOR_YELLOW),
-                                            half: Icon(Icons.star_half,
-                                                color: COLOR_YELLOW),
-                                            empty: Icon(Icons.star_border,
-                                                color: COLOR_YELLOW),
-                                          ),
-                                          ignoreGestures: true,
-                                          itemSize: 15,
-                                          itemPadding: EdgeInsets.symmetric(
-                                              horizontal: 1.0),
-                                          onRatingUpdate: (rating) {
-                                            print(rating);
-                                          },
-                                        ),
-                                        SizedBox(
-                                          width: 5,
-                                        ),
-                                        Text(
-                                          "4.9",
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 12),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 3,
-                                ),
-                                Text(
-                                  "Awesome doctor , will visit again",
-                                  style: TextStyle(
-                                      color: Colors.grey,
-                                      fontWeight: FontWeight.w300,
-                                      fontSize: 12),
-                                ),
-                                SizedBox(
-                                  height: 3,
+                                  ),
                                 ),
                               ],
                             ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (BuildContext context) =>
-                                    BookAppointment()));
-                      },
-                      child: Container(
-                        height: 50,
-                        margin: EdgeInsets.all(margin),
-                        decoration: BoxDecoration(
-                          gradient: colorGradient,
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Book Appointment",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
+                          )
+                        ])),
                   ],
                 )
               ],

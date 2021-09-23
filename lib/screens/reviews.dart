@@ -19,26 +19,29 @@ class _ReviewsState extends State<Reviews> {
       body: SafeArea(
         child: ListView(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                InkWell(
-                  onTap: (){
-                    Navigator.pop(context);
-                  },
-                  child:  CircleAvatar(
-                    backgroundColor: Colors.grey[200],
-                    child: Icon(Icons.arrow_back_ios_rounded,color: Colors.grey,),
+            Padding(
+              padding: EdgeInsets.only(left:10, right:5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  InkWell(
+                    onTap: (){
+                      Navigator.pop(context);
+                    },
+                    child:  CircleAvatar(
+                      backgroundColor: Colors.grey[200],
+                      child: Icon(Icons.arrow_back_ios_rounded,color: COLOR_DARK_BLUE,),
+                    ),
                   ),
-                ),
-                Text("Review",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w400,fontSize: 18),),
-                IconButton(
-                  onPressed: (){
+                  Text("Review",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w400,fontSize: 18),),
+                  IconButton(
+                    onPressed: (){
 
-                  },
-                  icon: Icon(Icons.notifications,size: 30,color: blue,),
-                )
-              ],
+                    },
+                    icon: Icon(Icons.notifications,size: 30,color: blue,),
+                  )
+                ],
+              ),
             ),
             Stack(
               children: [
@@ -81,8 +84,8 @@ class _ReviewsState extends State<Reviews> {
                         children: [
                           Container(
                             margin: EdgeInsets.all(margin),
-                            height:70,
-                            width: 70,
+                            height:100,
+                            width: 100,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
                                 shape: BoxShape.circle,
@@ -97,15 +100,15 @@ class _ReviewsState extends State<Reviews> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 SizedBox(height: margin,),
-                                Text("John Smith",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 16),),
-                                Text("Age: 42 , Female",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 14),),
+                                Text("John Smith",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 22),),
+                                Text("Age: 42 , Female",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 18),),
                                 Row(
                                   children: [
-                                    Icon(Icons.place,color: Colors.white,size: 15,),
-                                    Text("Miami, USA",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 10),)
+                                    Icon(Icons.place,color: Colors.white,size: 14,),
+                                    Text("Miami, USA",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 14),)
                                   ],
                                 ),
-                                Text("The doctor was calm",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 10),)
+                                Text("The doctor was calm",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 14),)
 
                               ],
                             ),
@@ -128,7 +131,7 @@ class _ReviewsState extends State<Reviews> {
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("5.0",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w400,fontSize: 16),),
+                        Text("5.0",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w600,fontSize: 16),),
                         SizedBox(width: 5,),
                         Text("Review",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w300,fontSize: 14),),
                         SizedBox(width: 5,),
@@ -162,7 +165,7 @@ class _ReviewsState extends State<Reviews> {
               physics: NeverScrollableScrollPhysics(),
               itemBuilder: (BuildContext context,int index){
                 return  Container(
-                  margin: EdgeInsets.all(margin),
+                  margin: EdgeInsets.fromLTRB(margin,10,margin, 0),
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey,width: 0.8),
                     borderRadius: BorderRadius.circular(10)
@@ -171,8 +174,8 @@ class _ReviewsState extends State<Reviews> {
                     children: [
                       Container(
                         margin: EdgeInsets.all(margin),
-                        height:50,
-                        width: 50,
+                        height:60,
+                        width: 60,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,

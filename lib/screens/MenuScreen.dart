@@ -1,3 +1,6 @@
+import 'package:doctor_app/screens/PayoutScreen.dart';
+import 'package:doctor_app/screens/ProfileScreen.dart';
+import 'package:doctor_app/screens/reviews.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -11,6 +14,8 @@ import 'package:doctor_app/screens/SupportScreen.dart';
 import 'package:doctor_app/screens/TermsScreen.dart';
 import 'package:doctor_app/screens/WalletScreen.dart';
 import 'package:doctor_app/utils/constants.dart';
+
+import 'ProfileSettingScreen.dart';
 
 
 class MenuScreen extends StatefulWidget {
@@ -96,7 +101,7 @@ class _MenuScreenState extends State<MenuScreen> {
           value:
               SystemUiOverlayStyle(statusBarIconBrightness: Brightness.light),
           child: ListView(
-            padding: EdgeInsets.fromLTRB(22, 52, 22, 24),
+            padding: EdgeInsets.fromLTRB(10, 42, 12, 14),
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -175,9 +180,9 @@ class _MenuScreenState extends State<MenuScreen> {
                                     fontWeight: FontWeight.w300),
                               ),
                               onPressed: () {
-
+                                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DoctorProfile()));
                               },
-                              child: const Text('Profile'),
+                              child: const Text('Profile '),
                             ),
                             TextButton(
                               style: TextButton.styleFrom(
@@ -242,6 +247,47 @@ class _MenuScreenState extends State<MenuScreen> {
                     ],
                   ),
                 ),
+              ),
+              Center(
+                child: Card(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      // const ListTile(
+                      //   leading: Icon(Icons.album),
+                      //   title: Text('The Enchanted Nightingale'),
+                      //   subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
+                      // ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            TextButton.icon(
+                              icon: Icon(Icons.local_atm,
+                                  color: COLOR_DARK_BLUE),
+                              label: Text(
+                                'Pay out',
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    color: COLOR_BLACK,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              onPressed: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => PayoutScreen()));
+
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                  height: 15
               ),
               Center(
                 child: Card(
@@ -377,13 +423,14 @@ class _MenuScreenState extends State<MenuScreen> {
                               icon: Icon(Icons.favorite,
                                   color: COLOR_DARK_BLUE),
                               label: Text(
-                                'Favorites',
+                                'My Reviews',
                                 style: TextStyle(
                                     fontSize: 16,
                                     color: COLOR_BLACK,
                                     fontWeight: FontWeight.w600),
                               ),
                               onPressed: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Reviews()));
                               },
                             ),
                           ],

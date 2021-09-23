@@ -49,14 +49,14 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               statusBarIconBrightness: Brightness.light
           ),
           child: ListView(
-            padding: EdgeInsets.fromLTRB(22, 52, 22, 24),
+            padding: EdgeInsets.fromLTRB(10, 42, 12, 14),
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ElevatedButton(
                     onPressed: () {
-
+                      Navigator.pop(context);
                     },
                     child: Icon(Icons.arrow_back_ios_rounded,
                         color: COLOR_DARK_BLUE),

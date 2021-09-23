@@ -1,6 +1,8 @@
 import 'package:doctor_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 
+import 'MainScreen.dart';
+
 class UserChats extends StatefulWidget {
   const UserChats({Key? key}) : super(key: key);
 
@@ -13,36 +15,39 @@ class _UserChatsState extends State<UserChats> {
   Widget build(BuildContext context) {
     var height=MediaQuery.of(context).size.height;
     var width=MediaQuery.of(context).size.width;
-    var margin=MediaQuery.of(context).size.width*0.05;
+    var margin=MediaQuery.of(context).size.width*0.03;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: ListView(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                InkWell(
-                  onTap: (){
-                    Navigator.pop(context);
-                  },
-                  child:  CircleAvatar(
-                    backgroundColor: Colors.grey[200],
-                    child: Icon(Icons.arrow_back_ios_rounded,color: Colors.grey,),
+            Padding(
+              padding: EdgeInsets.only(left: 10, right: 5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MainScreen()));
+                    },
+                    child:  CircleAvatar(
+                      backgroundColor: Colors.grey[200],
+                      child: Icon(Icons.arrow_back_ios_rounded,color: Colors.grey,),
+                    ),
                   ),
-                ),
-                Text("Chat",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w400,fontSize: 18),),
-                IconButton(
-                  onPressed: (){
+                  Text("Chat",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w400,fontSize: 18),),
+                  IconButton(
+                    onPressed: (){
 
-                  },
-                  icon: Icon(Icons.notifications,size: 30,color: blue,),
-                )
-              ],
+                    },
+                    icon: Icon(Icons.notifications,size: 30,color: blue,),
+                  )
+                ],
+              ),
             ),
             Container(
               height: 50,
-              margin: EdgeInsets.all(margin),
+              margin: EdgeInsets.only(left: margin, right: margin, top: margin),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(30),
@@ -65,7 +70,6 @@ class _UserChatsState extends State<UserChats> {
               ),
             ),
             Container(
-              margin: EdgeInsets.all(5),
               height: 100,
               child: ListView.builder(
                 shrinkWrap: true,
@@ -73,7 +77,7 @@ class _UserChatsState extends State<UserChats> {
                 itemCount: 3,
                 itemBuilder: (BuildContext context,int index){
                   return  Container(
-                    margin: EdgeInsets.all(5),
+                    margin: EdgeInsets.all(6),
                     padding: EdgeInsets.all(2),
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.green),
@@ -108,7 +112,6 @@ class _UserChatsState extends State<UserChats> {
                 return  Column(
                   children: [
                     Container(
-                      padding: EdgeInsets.only(top: 5,bottom: 5),
                       margin: EdgeInsets.only(left: margin,right: margin),
                       child: Row(
                         children: [
