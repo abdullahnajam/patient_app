@@ -21,6 +21,7 @@ class DoctorProfile extends StatefulWidget {
 }
 
 class _DoctorProfileState extends State<DoctorProfile> {
+  String dropdownValue='30 min';
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -404,6 +405,44 @@ class _DoctorProfileState extends State<DoctorProfile> {
                                     onToggle: (index) {
                                       print('switched to: $index');
                                     },
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Container(
+                                  padding: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey[200],
+                                    borderRadius: BorderRadius.circular(10)
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      DropdownButton<String>(
+                                        value: dropdownValue,
+                                        icon: Icon(Icons.arrow_drop_down,color: Colors.grey),
+                                        iconSize: 24,
+                                        elevation: 16,
+                                        style:  TextStyle(color: Colors.grey),
+                                        underline: Container(
+
+                                        ),
+                                        onChanged: (String? newValue) {
+                                          setState(() {
+                                            dropdownValue = newValue!;
+                                          });
+                                        },
+                                        items: <String>['30 min','45 min']
+                                            .map<DropdownMenuItem<String>>((String value) {
+                                          return DropdownMenuItem<String>(
+                                            value: value,
+                                            child: Text(value),
+                                          );
+                                        }).toList(),
+                                      ),
+                                      Text("\$80",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w300),)
+                                    ],
                                   ),
                                 ),
                                 Container(
