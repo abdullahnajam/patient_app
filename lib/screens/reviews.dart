@@ -219,6 +219,8 @@ class _ReviewsState extends State<Reviews> {
 
                               ],
                             ),
+                            Text("The doctor was just fine",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w300,fontSize: 14),),
+
                           ],
                         ),
                       )

@@ -197,7 +197,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Container(
                     //margin: EdgeInsets.all(margin),
-                    height: height*0.3,
+                    height: height*0.32,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         gradient: LinearGradient(colors: [COLOR_LIGHT_PURPLE, COLOR_LIGHT_BLUE],
@@ -236,13 +236,13 @@ class _HomePageState extends State<HomePage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SizedBox(height: margin,),
-                                  Text("11",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600,fontSize: 20),),
-                                  Text("Total Consultation",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 16,),),
+                                  Text("11",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600,fontSize: 18),),
+                                  Text("Total Consultation",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 14,),),
                                   SizedBox(height: 5,),
-                                  Text("20",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600,fontSize: 20),),
-                                  Text("Total Consult Hours",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 16),),
+                                  Text("20",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600,fontSize: 18),),
+                                  Text("Total Consult Hours",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 14),),
                                   SizedBox(height: 5,),
-                                  Text("Earnings",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
+                                  Text("Earnings",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
                                   Text("\$220",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w400,fontSize: 16),),
 
                                 ],
@@ -258,7 +258,7 @@ class _HomePageState extends State<HomePage> {
                   child: Container(
                     padding: EdgeInsets.all(10),
                     width: width*0.7,
-                    margin: EdgeInsets.only(top: height*0.26),
+                    margin: EdgeInsets.only(top: height*0.28),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
                         color: Colors.white

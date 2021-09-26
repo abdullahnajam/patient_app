@@ -49,7 +49,8 @@ class _DoctorProfileState extends State<DoctorProfile> {
               children: [
                 InkWell(
                   onTap: () {
-                    Navigator.pop(context);
+                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MainScreen()));
+
                   },
                   child: CircleAvatar(
                     backgroundColor: Colors.grey[200],
@@ -109,7 +110,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
               ])),
           Container(
             margin: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * 0.380),
+                top: MediaQuery.of(context).size.height * 0.380, left: 15, right: 15),
             height: MediaQuery.of(context).size.height -
                 MediaQuery.of(context).size.height * 0.125,
             child: ListView(
@@ -177,7 +178,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                                   decoration: InputDecoration(
                                       border: OutlineInputBorder(
                                         borderRadius:
-                                            BorderRadius.circular(10.0),
+                                            BorderRadius.circular(5.0),
                                       ),
                                       filled: true,
                                       prefixIcon: Icon(Icons.person),
@@ -197,7 +198,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                                   decoration: InputDecoration(
                                       border: OutlineInputBorder(
                                         borderRadius:
-                                            BorderRadius.circular(10.0),
+                                            BorderRadius.circular(5.0),
                                       ),
                                       filled: true,
                                       prefixIcon: Icon(Icons.email_outlined),
@@ -221,7 +222,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                                   },
                                   selectorConfig: SelectorConfig(
                                     selectorType:
-                                        PhoneInputSelectorType.DROPDOWN,
+                                        PhoneInputSelectorType.DIALOG,
                                   ),
                                   ignoreBlank: false,
                                   autoValidateMode: AutovalidateMode.disabled,
@@ -389,22 +390,24 @@ class _DoctorProfileState extends State<DoctorProfile> {
                                 SizedBox(
                                   height: 16,
                                 ),
-                                Center(
-                                  child: ToggleSwitch(
-                                    minWidth: double.infinity,
-                                    minHeight: 60,
-                                    cornerRadius: 10.0,
-                                    activeBgColors: [[Colors.purple[800]!], [Colors.purple[800]!]],
-                                    activeFgColor: Colors.white,
-                                    inactiveBgColor: Colors.white70,
-                                    inactiveFgColor: Colors.black54,
-                                    initialLabelIndex: 1,
-                                    totalSwitches: 2,
-                                    labels: ['Sudan', 'Out of Sudan'],
-                                    radiusStyle: true,
-                                    onToggle: (index) {
-                                      print('switched to: $index');
-                                    },
+                                FittedBox(
+                                  child: Center(
+                                    child: ToggleSwitch(
+                                      minWidth: double.infinity,
+                                      minHeight: 60,
+                                      cornerRadius: 10.0,
+                                      activeBgColors: [[Colors.purple[800]!], [Colors.purple[800]!]],
+                                      activeFgColor: Colors.white,
+                                      inactiveBgColor: Colors.white70,
+                                      inactiveFgColor: Colors.black54,
+                                      initialLabelIndex: 1,
+                                      totalSwitches: 2,
+                                      labels: ['Sudan', 'Out of Sudan'],
+                                      radiusStyle: true,
+                                      onToggle: (index) {
+                                        print('switched to: $index');
+                                      },
+                                    ),
                                   ),
                                 ),
                                 SizedBox(

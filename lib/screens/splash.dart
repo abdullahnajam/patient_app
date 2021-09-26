@@ -1,6 +1,3 @@
-import 'dart:async';
-
-import 'package:doctor_app/screens/HomeScreen.dart';
 import 'package:doctor_app/screens/onBoardingScreen.dart';
 import 'package:doctor_app/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
