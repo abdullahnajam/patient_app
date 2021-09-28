@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:patient_app/screens/NotificationScreen.dart';
+import 'package:patient_app/screens/booking_history.dart';
 import 'package:patient_app/screens/profile.dart';
 import 'package:patient_app/utils/constants.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -56,7 +58,15 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text("Hi, Ayman",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 25),),
-                    Icon(Icons.notifications,color: Colors.white,)
+                    InkWell(
+                        onTap: (){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      NotificationScreen()));
+                        },
+                        child: Icon(Icons.notifications,color: Colors.white,))
                   ],
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height*0.02,),
@@ -114,7 +124,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.all(MediaQuery.of(context).size.width*0.05),
+                  margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.05, vertical: 5),
                   child: Text("Special Offers",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 16),),
                 ),
                 Container(
@@ -180,7 +190,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.all(margin),
+                  margin: EdgeInsets.symmetric(horizontal: margin, vertical: 5),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -237,12 +247,20 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.all(margin),
+                  margin: EdgeInsets.symmetric(horizontal: margin, vertical: 8),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("Upcoming Schedule",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 16),),
-                      Text("View All",style: TextStyle(color: blue,fontWeight: FontWeight.bold,fontSize: 12),),
+                      InkWell(
+                          onTap: (){
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        BookingHisttory()));
+                          },
+                          child: Text("View All",style: TextStyle(color: blue,fontWeight: FontWeight.bold,fontSize: 12),)),
                     ],
                   ),
                 ),
@@ -299,7 +317,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.all(margin),
+                  margin: EdgeInsets.symmetric(horizontal: margin, vertical: 8),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

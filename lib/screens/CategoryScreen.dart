@@ -40,7 +40,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
         value:
         SystemUiOverlayStyle(statusBarIconBrightness: Brightness.light),
         child: ListView(
-          padding: EdgeInsets.fromLTRB(22, 52, 22, 24),
+          padding: EdgeInsets.fromLTRB(12, 52, 22, 12),
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

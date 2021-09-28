@@ -34,7 +34,7 @@ class _WalletScreenState extends State<WalletScreen> {
               statusBarIconBrightness: Brightness.light
           ),
           child: ListView(
-            padding: EdgeInsets.fromLTRB(22, 52, 22, 24),
+            padding: EdgeInsets.fromLTRB(12, 52, 22, 12),
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -140,7 +140,7 @@ class _WalletScreenState extends State<WalletScreen> {
                 ),
               ),
               SizedBox(
-                height: 30,
+                height: 15,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -177,7 +177,7 @@ class _WalletScreenState extends State<WalletScreen> {
               Column(
                 children: [
                   SizedBox(
-                    height: 15,
+                    height: 5,
                   ),
                   Card(
                     child: Padding(
@@ -202,7 +202,7 @@ class _WalletScreenState extends State<WalletScreen> {
                     ),
 
                   SizedBox(
-                    height: 15,
+                    height: 5,
                   ),
                   Card(
                     child: Padding(
@@ -227,7 +227,7 @@ class _WalletScreenState extends State<WalletScreen> {
                   ),
 
                   SizedBox(
-                    height: 15,
+                    height: 5,
                   ),
                   Card(
                     child: Padding(
@@ -252,7 +252,7 @@ class _WalletScreenState extends State<WalletScreen> {
                   ),
 
                   SizedBox(
-                    height: 15,
+                    height: 5,
                   ),
                   Card(
                     child: Padding(

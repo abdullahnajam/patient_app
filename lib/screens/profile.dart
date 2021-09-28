@@ -105,7 +105,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                 Column(
                   children: [
                     SizedBox(
-                      height: 30,
+                      height: 10,
                     ),
                     Text(
                       "Dr. Navida Navara",
@@ -259,15 +259,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                       margin: EdgeInsets.only(
                           left: margin, right: margin, top: margin),
                       decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 2,
-                              blurRadius: 2,
-                              offset:
-                                  Offset(0, 2), // changes position of shadow
-                            ),
-                          ],
+
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(color: Color(0xffe0e0e0)),
                           color: Colors.white),
@@ -304,15 +296,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                       margin: EdgeInsets.only(
                           left: margin, right: margin, top: margin),
                       decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 2,
-                              blurRadius: 2,
-                              offset:
-                                  Offset(0, 2), // changes position of shadow
-                            ),
-                          ],
+
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(color: Color(0xffe0e0e0)),
                           color: Colors.white),

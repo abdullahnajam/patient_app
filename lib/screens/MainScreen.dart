@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:patient_app/screens/MenuScreen.dart';
 import 'package:patient_app/screens/booking_history.dart';
 import 'package:patient_app/screens/home_page.dart';
@@ -12,6 +13,29 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+
+
+  static const TextStyle optionStyle =
+  TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Home',
+      style: optionStyle,
+    ),
+    Text(
+      'Search',
+      style: optionStyle,
+    ),
+    Text(
+      'Appointments',
+      style: optionStyle,
+    ),
+    Text(
+      'Menu',
+      style: optionStyle,
+    ),
+
+  ];
 
   int _currentIndex=0;
 
@@ -41,112 +65,58 @@ class _MainScreenState extends State<MainScreen> {
       body: tabs[_currentIndex],
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
+          color: Colors.white,
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 1,
-              blurRadius: 50,
-            ),
-          ],
-        ),
-        width: size.width,
-        height: 80,
-        child: Stack(
-          children: [
-            CustomPaint(
-              size: Size(size.width,80),
-              painter: AppCustomPainter(),
-            ),
-            Container(
-              width: size.width,
-              height: 80,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Center(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Expanded(flex:2, child: SizedBox(height: 10,)),
-                        Expanded(
-                          flex: 6,
-                          child: IconButton(icon: Icon(Icons.home), color: COLOR_DARK_PURPLE, onPressed: (){
-                            setState(() {
-                              _currentIndex = 0;
-                            });
-                          }),
-                        ),
-                        Expanded(
-                            flex: 6,
-                            child:  Text("Home", style: TextStyle(color: COLOR_DARK_PURPLE ))
-                        ),
-                      ],
-                    ),
-                  ),
-                  Center(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Expanded(flex:2, child: SizedBox(height: 10,)),
-                        Expanded(
-                          flex: 6,
-                          child: IconButton(icon: Icon(Icons.search), color: COLOR_DARK_PURPLE, onPressed: (){
-                            setState(() {
-                              _currentIndex = 1;
-                            });
-                          }),
-                        ),
-                        Expanded(
-                            flex: 6,
-                            child: Text("Search", style: TextStyle(color: COLOR_DARK_PURPLE , ))
-                        ),
-                      ],
-                    ),
-                  ),
-                  Center(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Expanded(flex:2, child: SizedBox(height: 10,)),
-                        Expanded(
-                          flex: 6,
-                          child: IconButton(icon: Icon(Icons.date_range_sharp), color: COLOR_DARK_PURPLE, onPressed: (){
-                            setState(() {
-                              _currentIndex = 2;
-                            });
-                          }),
-                        ),
-                        Expanded(
-                            flex: 6,
-                            child: Text("Appointments", style: TextStyle(color: COLOR_DARK_PURPLE , ))
-                        ),
-                      ],
-                    ),
-                  ),
-                  Center(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Expanded(flex:2, child: SizedBox(height: 10,)),
-                        Expanded(
-                          flex: 6,
-                          child: IconButton(icon: Icon(Icons.menu), color: COLOR_DARK_PURPLE, onPressed: (){
-                            setState(() {
-                              _currentIndex = 3;
-                            });
-                          }),
-                        ),
-                        Expanded(
-                          flex: 6,
-                          child: Text("Menu", style: TextStyle(color: COLOR_DARK_PURPLE ))
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+              blurRadius: 20,
+              color: Colors.black.withOpacity(.1),
             )
           ],
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 8),
+            child: GNav(
+              rippleColor: Colors.grey[300]!,
+              hoverColor: Colors.grey[100]!,
+              gap: 6,
+              activeColor: COLOR_DARK_PURPLE,
+              iconSize: 20,
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              duration: Duration(milliseconds: 400),
+              tabBackgroundColor: Colors.grey[100]!,
+              color: COLOR_FADED_PURPLE,
+              tabs: [
+                GButton(
+                  icon: Icons.home,
+                  text: 'Home',
+                  // onPressed: () {
+                  //   setState(() {
+                  //     _currentIndex = 0;
+                  //   });
+                  // }
+                ),
+                GButton(
+                  icon: Icons.search,
+                  text: 'Search',
+                ),
+                GButton(
+                  icon: Icons.date_range_sharp,
+                  text: 'Appointments',
+                ),
+                GButton(
+                  icon: Icons.menu,
+                  text: 'Menu',
+                ),
+              ],
+              selectedIndex: _currentIndex,
+              onTabChange: (index) {
+                setState(() {
+                  _currentIndex = index;
+                });
+              },
+            ),
+          ),
         ),
       ),
     );

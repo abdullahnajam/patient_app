@@ -16,6 +16,8 @@ const colorGradient=LinearGradient(
 
 const COLOR_DARK_PURPLE = Color(0xff701b97);
 
+const COLOR_FADED_PURPLE = Color(0x63701b97);
+
 const COLOR_LIGHT_BLUE = Color(0xff6b5cfd);
 
 const COLOR_DARK_BLUE = Color(0xff3639a4);

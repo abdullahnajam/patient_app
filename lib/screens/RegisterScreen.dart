@@ -36,7 +36,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               statusBarIconBrightness: Brightness.light
           ),
           child: ListView(
-            padding: EdgeInsets.fromLTRB(22, 52, 22, 24),
+            padding: EdgeInsets.fromLTRB(12, 52, 22, 12),
             children: [
               Container(
                 child: Image.asset('assets/images/login_bg.png', height: 180),

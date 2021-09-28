@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:patient_app/screens/SplashScreen.dart';
 import 'package:patient_app/utils/constants.dart';
 import 'package:patient_app/screens/LoginScreen.dart';
 
@@ -17,9 +18,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
         primaryColor: Colors.white,
-        textTheme: TEXT_THEME_DEFAULT
+        textTheme: TEXT_THEME_DEFAULT,
       ),
-      home: LoginScreen(),
+      home: SplashScreen(),
     );
   }
 }

@@ -98,7 +98,7 @@ class _MenuScreenState extends State<MenuScreen> {
           value:
               SystemUiOverlayStyle(statusBarIconBrightness: Brightness.light),
           child: ListView(
-            padding: EdgeInsets.fromLTRB(22, 52, 22, 24),
+            padding: EdgeInsets.fromLTRB(12, 52, 22, 12),
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -180,7 +180,7 @@ class _MenuScreenState extends State<MenuScreen> {
                                 Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => EditProfile()));
 
                               },
-                              child: const Text('Profile'),
+                              child: const Text('Profile '),
                             ),
                             TextButton(
                               style: TextButton.styleFrom(
