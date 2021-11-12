@@ -33,13 +33,19 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+          constraints: BoxConstraints.expand(),
+          decoration: BoxDecoration(
+              color: Colors.white,
+              image: DecorationImage(
+                  image: AssetImage("assets/images/splash_logo.png"),
+                  fit: BoxFit.cover)
+          ),
           width: double.maxFinite,
           height: MediaQuery.of(context).size.height,
           child: Center(child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset("assets/images/logo.png",width: 250,height: 250,),
-              SizedBox(height: 100,),
+              SizedBox(height: 350),
               InkWell(
                 onTap: navigationPage,
                 child: Container(
@@ -58,9 +64,6 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ],
           )),
-          decoration: BoxDecoration(
-              color: Colors.white
-          )
       ),
     );
   }
