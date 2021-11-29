@@ -1,20 +1,24 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:patient_app/Model/DoctorModel.dart';
 import 'package:patient_app/utils/constants.dart';
 import 'book_appointment.dart';
 import 'message.dart';
 
 class DoctorProfile extends StatefulWidget {
-  const DoctorProfile({Key? key}) : super(key: key);
+  DoctorModel model ;
 
+  DoctorProfile(this.model);
 
   @override
   _DoctorProfileState createState() => _DoctorProfileState();
 }
 
 class _DoctorProfileState extends State<DoctorProfile> {
-  String dropdownValue = '30 min';
+  String dropdownValue = '1 hour';
+  int sessionTimeIndex = 1 ;
 
   @override
   Widget build(BuildContext context) {
@@ -72,26 +76,32 @@ class _DoctorProfileState extends State<DoctorProfile> {
               height: MediaQuery.of(context).size.height -
                   MediaQuery.of(context).size.height * 0.125,
               child: ListView(children: [
-                Container(
-                  height: width * 0.4,
-                  margin:
-                      EdgeInsets.only(left: width * 0.3, right: width * 0.3),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.white, width: 2),
-                      image: DecorationImage(
-                          image: AssetImage("assets/placeholder/doctor.png"),
-                          fit: BoxFit.cover)),
-                ),
+
+               CachedNetworkImage(
+                    imageBuilder: (context, imageProvider) => Container(
+                      height: width * 0.4,
+                      margin: EdgeInsets.only(left: width * 0.3, right: width * 0.3),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset: Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Colors.white, width: 2),
+                          image: DecorationImage(
+                              image: imageProvider, fit: BoxFit.cover),
+                          ),),
+                    imageUrl: widget.model.profile,
+                    placeholder: (context, url) => CircularProgressIndicator(
+                      valueColor: new AlwaysStoppedAnimation<Color>(primary),
+                    ),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
+                  ),
               ]
               )
           ),
@@ -108,14 +118,14 @@ class _DoctorProfileState extends State<DoctorProfile> {
                       height: 10,
                     ),
                     Text(
-                      "Dr. Navida Navara",
+                      widget.model.name,
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w500,
                           fontSize: 18),
                     ),
                     Text(
-                      "Psychologist",
+                      widget.model.speciality,
                       style: TextStyle(
                           color: Colors.grey,
                           fontWeight: FontWeight.w300,
@@ -128,7 +138,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         RatingBar(
-                          initialRating: 4,
+                          initialRating: widget.model.rating.toDouble(),
                           direction: Axis.horizontal,
                           allowHalfRating: true,
                           itemCount: 5,
@@ -151,7 +161,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                           width: 5,
                         ),
                         Text(
-                          "4.9",
+                          widget.model.rating.toString(),
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w500,
@@ -161,7 +171,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                           width: 5,
                         ),
                         Text(
-                          "(128 Reviews)",
+                          "",
                           style: TextStyle(
                               color: Colors.grey,
                               fontWeight: FontWeight.w300,
@@ -245,13 +255,16 @@ class _DoctorProfileState extends State<DoctorProfile> {
                     ),
                     Container(
                       alignment: Alignment.center,
-                      child: Text(
-                        "Lorem ipsum, or lipsum as it is \ndummy text used in laying out print",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w300,
-                          fontSize: 15,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(10,0,10,0),
+                        child: Text(
+                          widget.model.description,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w300,
+                            fontSize: 15,
+                          ),
                         ),
                       ),
                     ),
@@ -284,7 +297,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                               fontSize: 14),
                         ),
                         subtitle: Text(
-                          "08:00 AM - 05:00 AM",
+                          widget.model.availibility,
                           style: TextStyle(
                               color: Colors.grey,
                               fontWeight: FontWeight.w300,
@@ -321,7 +334,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                               fontSize: 14),
                         ),
                         subtitle: Text(
-                          "Miami , USA",
+                         widget.model.location,
                           style: TextStyle(
                               color: Colors.grey,
                               fontWeight: FontWeight.w300,
@@ -382,9 +395,22 @@ class _DoctorProfileState extends State<DoctorProfile> {
                                     onChanged: (String? newValue) {
                                       setState(() {
                                         dropdownValue = newValue!;
+                                        if(newValue == "1 hour")
+                                          {
+                                            sessionTimeIndex = 1;
+                                          }
+                                        else if (newValue == "2 hour")
+                                          {
+                                            sessionTimeIndex = 2;
+                                          }
+                                        else
+                                          {
+                                            sessionTimeIndex = 3;
+                                          }
+
                                       });
                                     },
-                                    items: <String>['30 min', '45 min']
+                                    items: <String>['1 hour', '2 hour', '3 hour']
                                         .map<DropdownMenuItem<String>>((String value) {
                                       return DropdownMenuItem<String>(
                                         value: value,
@@ -438,7 +464,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                                         ],
                                       )),
                                   child: Text(
-                                    "20 USD",
+                                     (widget.model.sessionFees*sessionTimeIndex).toString() + " \$" ,
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w300,
@@ -577,7 +603,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                             context,
                             MaterialPageRoute(
                                 builder: (BuildContext context) =>
-                                    BookAppointment()));
+                                    BookAppointment(widget.model ,widget.model.sessionFees*sessionTimeIndex , sessionTimeIndex)));
                       },
                       child: Container(
                         height: 50,

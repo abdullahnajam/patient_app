@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:patient_app/Model/UserModel.dart';
 import 'package:patient_app/utils/constants.dart';
 
-import 'MainScreen.dart';
+import '../Navigator/BottomNav.dart';
 
 
 
 class ForgotPasswordSentScreen extends StatefulWidget {
+  UserModel model;
+
+  ForgotPasswordSentScreen(this.model);
+
   @override
   _ForgotPasswordSentScreenState createState() => _ForgotPasswordSentScreenState();
 }
@@ -79,7 +84,7 @@ class _ForgotPasswordSentScreenState extends State<ForgotPasswordSentScreen> {
                 height: 50.0,
                 child: RaisedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MainScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MainScreen(widget.model)));
 
                   },
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),

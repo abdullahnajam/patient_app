@@ -3,13 +3,18 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/style.dart';
+import 'package:patient_app/Model/UserModel.dart';
 import 'package:patient_app/utils/constants.dart';
 
-import 'MainScreen.dart';
+import '../Navigator/BottomNav.dart';
 
 
 
 class OTPScreen extends StatefulWidget {
+  UserModel model;
+
+  OTPScreen(this.model);
+
   @override
   _OTPScreenState createState() => _OTPScreenState();
 }
@@ -108,7 +113,7 @@ class _OTPScreenState extends State<OTPScreen> {
                 height: 50.0,
                 child: RaisedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MainScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MainScreen(widget.model)));
                   },
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
                   padding: EdgeInsets.all(0.0),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:patient_app/screens/LoginScreen.dart';
+import 'package:patient_app/Auth/LoginScreen.dart';
+import 'package:patient_app/Model/UserModel.dart';
 import 'package:patient_app/screens/MenuScreen.dart';
 import 'package:patient_app/utils/constants.dart';
 
@@ -9,6 +10,10 @@ import 'ForgotPasswordSentScreen.dart';
 
 
 class ChangePasswordScreen extends StatefulWidget {
+  UserModel model;
+
+  ChangePasswordScreen(this.model);
+
   @override
   _ChangePasswordScreenState createState() => _ChangePasswordScreenState();
 }
@@ -57,7 +62,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MenuScreen()));
+                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MenuScreen(widget.model)));
 
                     },
                     child: Icon(Icons.arrow_back_ios_rounded,
@@ -146,7 +151,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                 height: 50.0,
                 child: RaisedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MenuScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MenuScreen(widget.model)));
 
                   },
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),

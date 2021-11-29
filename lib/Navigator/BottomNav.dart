@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:patient_app/Model/UserModel.dart';
 import 'package:patient_app/screens/MenuScreen.dart';
 import 'package:patient_app/screens/booking_history.dart';
 import 'package:patient_app/screens/home_page.dart';
@@ -8,11 +9,16 @@ import 'package:patient_app/utils/constants.dart';
 
 
 class MainScreen extends StatefulWidget {
+  UserModel model;
+
+  MainScreen(this.model);
+
   @override
   _MainScreenState createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
+
 
 
   static const TextStyle optionStyle =
@@ -39,15 +45,17 @@ class _MainScreenState extends State<MainScreen> {
 
   int _currentIndex=0;
 
-  final tabs= [
-    HomePage(),
-    SearchResult(),
-    BookingHisttory(),
-    MenuScreen(),
-  ];
+  var tabs;
 
   @override
   void initState() {
+
+    tabs= [
+      HomePage(widget.model),
+      SearchResult(widget.model),
+      BookingHisttory(widget.model),
+      MenuScreen(widget.model),
+    ];
     super.initState();
   }
 

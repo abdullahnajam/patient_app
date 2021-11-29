@@ -1,12 +1,16 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:patient_app/screens/profile.dart';
+import 'package:patient_app/Model/DoctorModel.dart';
+import 'package:patient_app/screens/DoctorProfile.dart';
 import 'package:patient_app/utils/constants.dart';
 
 
 class DoctorCard extends StatefulWidget {
-  const DoctorCard({Key? key}) : super(key: key);
+  DoctorModel model;
+
+  DoctorCard(this.model);
 
   @override
   _DoctorCardState createState() => _DoctorCardState();
@@ -20,7 +24,7 @@ class _DoctorCardState extends State<DoctorCard> {
     var margin=MediaQuery.of(context).size.width*0.05;
     return InkWell(
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DoctorProfile()));
+        Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DoctorProfile(widget.model)));
       },
       child: Container(
         margin: EdgeInsets.only(top: 10),
@@ -47,24 +51,41 @@ class _DoctorCardState extends State<DoctorCard> {
                         width: MediaQuery.of(context).size.height*0.07,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(360),
-                            image: DecorationImage(
+                            /*image: DecorationImage(
                                 image: AssetImage(placeHolderLandScape),
                                 fit: BoxFit.cover
-                            )
+                            )*/
                         ),
+                        child : CachedNetworkImage(
+                          imageBuilder: (context, imageProvider) => Container(
+                            height: MediaQuery.of(context).size.height*0.07,
+                            width: MediaQuery.of(context).size.height*0.07,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                  image: imageProvider, fit: BoxFit.cover),
+                            ),
+                          ),
+                          imageUrl: widget.model.profile,
+                          placeholder: (context, url) => CircularProgressIndicator(
+                            valueColor: new AlwaysStoppedAnimation<Color>(primary),
+                          ),
+                          errorWidget: (context, url, error) => Icon(Icons.error),
+                        ),
+
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text("Dr. Navida Navara",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 16),),
+                          Text(widget.model.name,style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 16),),
                           SizedBox(height: 3,),
-                          Text("Psychologist",style: TextStyle(color: blue,fontWeight: FontWeight.w300,fontSize: 10),),
+                          Text(widget.model.speciality,style: TextStyle(color: blue,fontWeight: FontWeight.w300,fontSize: 10),),
                           SizedBox(height: 3,),
                          Row(
                            children: [
                              RatingBar(
-                               initialRating: 4,
+                               initialRating: widget.model.rating.toDouble(),
                                direction: Axis.horizontal,
                                allowHalfRating: true,
                                itemCount: 5,
@@ -92,7 +113,7 @@ class _DoctorCardState extends State<DoctorCard> {
                                children: [
                                  Icon(Icons.place,color: primary,size: 20,),
                                  SizedBox(width: 2,),
-                                 Text("Miami, USA",style: TextStyle(color: blue,fontWeight: FontWeight.w300,fontSize: 12),),
+                                 Text(widget.model.location,style: TextStyle(color: blue,fontWeight: FontWeight.w300,fontSize: 12),),
 
                                ],
                              ),
@@ -103,7 +124,7 @@ class _DoctorCardState extends State<DoctorCard> {
                                children: [
                                  Image.asset("assets/icons/money.png",width: 20,height: 20,),
                                  SizedBox(width: 2,),
-                                 Text("\$20/hr",style: TextStyle(color: blue,fontWeight: FontWeight.w300,fontSize: 12),),
+                                 Text("\$${widget.model.sessionFees.toString()}/hr",style: TextStyle(color: blue,fontWeight: FontWeight.w300,fontSize: 12),),
 
                                ],
                              )

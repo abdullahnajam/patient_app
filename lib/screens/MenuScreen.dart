@@ -1,9 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:patient_app/Model/UserModel.dart';
 import 'package:patient_app/screens/ChangePassword.dart';
-import 'package:patient_app/screens/LoginScreen.dart';
-import 'package:patient_app/screens/MainScreen.dart';
+import 'package:patient_app/Auth/LoginScreen.dart';
+import 'package:patient_app/Navigator/BottomNav.dart';
 import 'package:patient_app/screens/NotificationScreen.dart';
 import 'package:patient_app/screens/PrivacyScreen.dart';
 import 'package:patient_app/screens/ReportScreen.dart';
@@ -11,11 +12,17 @@ import 'package:patient_app/screens/SupportScreen.dart';
 import 'package:patient_app/screens/TermsScreen.dart';
 import 'package:patient_app/screens/WalletScreen.dart';
 import 'package:patient_app/screens/favorite.dart';
+import 'package:patient_app/screens/DoctorProfile.dart';
 import 'package:patient_app/utils/constants.dart';
 
 import 'editProfile.dart';
 
 class MenuScreen extends StatefulWidget {
+  UserModel model;
+
+
+  MenuScreen(this.model);
+
   @override
   _MenuScreenState createState() => _MenuScreenState();
 }
@@ -105,7 +112,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MainScreen()));
+                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MainScreen(widget.model)));
 
                     },
                     child: Icon(Icons.arrow_back_ios_rounded,
@@ -158,7 +165,8 @@ class _MenuScreenState extends State<MenuScreen> {
                                         color: COLOR_BLACK,
                                         fontWeight: FontWeight.w600),
                                   ),
-                                  onPressed: null,
+                                  onPressed: (){
+                                  } ,
                                 ),
                                 Icon(
                                   Icons.keyboard_arrow_right_sharp,
@@ -177,7 +185,7 @@ class _MenuScreenState extends State<MenuScreen> {
                                     fontWeight: FontWeight.w300),
                               ),
                               onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => EditProfile()));
+                                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => EditProfile(widget.model)));
 
                               },
                               child: const Text('Profile '),
@@ -192,7 +200,7 @@ class _MenuScreenState extends State<MenuScreen> {
                                     fontWeight: FontWeight.w300),
                               ),
                               onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => ChangePasswordScreen()));
+                                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => ChangePasswordScreen(widget.model)));
                               },
                               child: const Text('Change Password'),
                             )

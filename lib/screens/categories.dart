@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:patient_app/Model/DoctorModel.dart';
 import 'package:patient_app/screens/filter.dart';
 import 'package:patient_app/utils/constants.dart';
 import 'package:patient_app/widgets/doctor_card.dart';
@@ -14,6 +16,7 @@ class Categories extends StatefulWidget {
 class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
+    Size size  = MediaQuery.of(context).size;
     var height=MediaQuery.of(context).size.height;
     var width=MediaQuery.of(context).size.width;
     var margin=MediaQuery.of(context).size.width*0.05;
@@ -134,13 +137,64 @@ class _CategoriesState extends State<Categories> {
                   ],
                 ),
                 Expanded(
-                  child: ListView.builder(
-                    itemCount: 3,
-                    itemBuilder: (BuildContext context,int index){
-                      return DoctorCard();
+                  flex : 83,
+                  child: FutureBuilder<QuerySnapshot>(
+                    future: FirebaseFirestore.instance.collection('doctor').get(),
+                    builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot){
+                      if (snapshot.hasError) {
+                        return  Column(
+                          children: [
+                            SizedBox(height : size.height*0.3),
+                            const Center(child: Text('Something Went Wrong',style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black54,
+                                fontWeight: FontWeight.w600
+                            ),)),
+                          ],
+                        );;
+                      }
+
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Column(
+                          children: [
+                            SizedBox(height : size.height*0.3),
+                            Center(child: CircularProgressIndicator(
+                              valueColor: new AlwaysStoppedAnimation<Color>(primary),
+                            ),),
+                          ],
+                        );
+                      }
+
+                      if(snapshot.data!.size == 0)
+                      {
+                        return Column(
+                          children: [
+                            SizedBox(height : size.height*0.3),
+                            const Center(child: Text('No Doctors',style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black54,
+                                fontWeight: FontWeight.w600
+                            ),)),
+                          ],
+                        );
+
+
+                      }
+
+                      return ListView(
+                        physics: BouncingScrollPhysics(),
+                        padding: EdgeInsets.all(0),
+                        shrinkWrap: true,
+                        children: snapshot.data!.docs.map((DocumentSnapshot document) {
+                          Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
+                          DoctorModel model= DoctorModel.fromMap(data, document.reference.id);
+                          return DoctorCard(model);
+                        }).toList(),
+                      );
                     },
                   ),
-                )
+
+                ),
 
               ],
             ),
