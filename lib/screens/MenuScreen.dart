@@ -1,6 +1,8 @@
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:patient_app/Model/UserModel.dart';
 import 'package:patient_app/screens/ChangePassword.dart';
 import 'package:patient_app/Auth/LoginScreen.dart';
@@ -14,6 +16,7 @@ import 'package:patient_app/screens/WalletScreen.dart';
 import 'package:patient_app/screens/favorite.dart';
 import 'package:patient_app/screens/DoctorProfile.dart';
 import 'package:patient_app/utils/constants.dart';
+import 'package:toast/toast.dart';
 
 import 'editProfile.dart';
 
@@ -81,7 +84,7 @@ class LinkedLabelRadio extends StatelessWidget {
 //Main Screen
 
 class _MenuScreenState extends State<MenuScreen> {
-  bool _isRadioSelected = false;
+  bool _isRadioSelected = true;
 
 
   Color _backgroundColor = COLOR_WHITE;
@@ -302,6 +305,8 @@ class _MenuScreenState extends State<MenuScreen> {
                               onChanged: (bool newValue) {
                                 setState(() {
                                   _isRadioSelected = newValue;
+                                  context.locale = Locale('en', 'US');
+
                                 });
                               },
                             ),
@@ -313,6 +318,8 @@ class _MenuScreenState extends State<MenuScreen> {
                               onChanged: (bool newValue) {
                                 setState(() {
                                   _isRadioSelected = newValue;
+                                  context.locale = Locale('ar', 'EG');
+
                                 });
                               },
                             ),
@@ -434,8 +441,16 @@ class _MenuScreenState extends State<MenuScreen> {
                                     color: COLOR_BLACK,
                                     fontWeight: FontWeight.w600),
                               ),
-                              onPressed: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => LoginScreen()));
+                              onPressed: ()async{
+                                final user = await ParseUser.currentUser() as ParseUser;
+                                var response = await user.logout();
+
+                                if (response.success) {
+                                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => LoginScreen()));
+
+                                } else {
+                                  Toast.show("${response.error!.message}", context, duration: Toast.LENGTH_LONG, gravity:  Toast.TOP , textColor: primary , backgroundColor: Colors.white);
+                                }
 
                               },
                             ),

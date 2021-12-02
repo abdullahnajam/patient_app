@@ -39,15 +39,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         children: [
           Expanded(
             flex: 1,
-            child: Container(
-              margin: EdgeInsets.all(10),
-              child: IconButton(
-                onPressed: (){
-                  Navigator.pop(context);
-                },
-                icon: Icon(Icons.arrow_back_ios_rounded),
-              ),
-            ),
+            child: Container(),
+
           ),
           Expanded(
             flex: 8,

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:patient_app/Model/DoctorModel.dart';
 import 'package:patient_app/Model/UserModel.dart';
 import 'package:patient_app/screens/filter.dart';
@@ -118,9 +119,9 @@ class _SearchResultState extends State<SearchResult> {
 
               Expanded(
                 flex : 83,
-                child: FutureBuilder<QuerySnapshot>(
-                  future: FirebaseFirestore.instance.collection('doctor').get(),
-                  builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot){
+                child: FutureBuilder<List<ParseObject>>(
+                  future: getDoctor(),
+                  builder: (BuildContext context, AsyncSnapshot<List<ParseObject>> snapshot){
                     if (snapshot.hasError) {
                       return  Column(
                         children: [
@@ -145,7 +146,7 @@ class _SearchResultState extends State<SearchResult> {
                       );
                     }
 
-                    if(snapshot.data!.size == 0)
+                    if(snapshot.data!.isEmpty)
                     {
                       return Column(
                         children: [
@@ -161,20 +162,39 @@ class _SearchResultState extends State<SearchResult> {
 
                     }
 
-                    return ListView(
+                    return ListView.builder(
                       physics: BouncingScrollPhysics(),
                       padding: EdgeInsets.all(0),
                       shrinkWrap: true,
-                      children: snapshot.data!.docs.map((DocumentSnapshot document) {
-                        Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
-                        DoctorModel model= DoctorModel.fromMap(data, document.reference.id);
+                      itemCount: snapshot.data!.length,
+                      itemBuilder: (BuildContext context,int index){
+                        final data = snapshot.data![index];
+
+                        print(data.objectId.toString());
+                        print(data.get<String>("name").toString());
+                        print(data.get("rating"));
+
+
+                        DoctorModel model= DoctorModel(data.objectId.toString(),
+                                                       data.get<String>("name").toString(),
+                                                       data.get<String>("profile").toString(),
+                                                       data.get<String>("speciality").toString(),
+                                                       data.get("sessionFees"),
+                                                       data.get<String>("description").toString(),
+                                                       data.get<String>("availibility").toString(),
+                                                       data.get<String>("location").toString(),
+                                                       data.get("rating"));
                         return DoctorCard(model);
-                      }).toList(),
+                      }
+
                     );
                   },
                 ),
 
               ),
+
+
+
               /*Expanded(
                 child: ListView.builder(
                   itemCount: 3,
@@ -190,6 +210,57 @@ class _SearchResultState extends State<SearchResult> {
       ),
     );
   }
+
+  Future<List<ParseObject>> getDoctor() async {
+    QueryBuilder<ParseObject> queryTodo =
+    QueryBuilder<ParseObject>(ParseObject('DoctorData'));
+    final ParseResponse apiResponse = await queryTodo.query();
+
+    if (apiResponse.success && apiResponse.results != null) {
+      return apiResponse.results as List<ParseObject>;
+    } else {
+      return [];
+    }
+  }
+
+
+/*  Future<List> doctorData()async
+  {
+    QueryBuilder<ParseObject> queryUsers =  QueryBuilder<ParseObject>(ParseObject("userData"));
+    final ParseResponse parseResponse = await queryUsers.query();
+    if(parseResponse.success)
+      {
+        return parseResponse.result as List <ParseObject>;
+      }
+  }
+
+
+  Future <List<DoctorModel>> getTodoList() async{
+
+    List<DoctorModel> todoList = [];
+
+    QueryBuilder<ParseObject> queryUsers =  QueryBuilder<ParseObject>(ParseObject("userData"));
+    final ParseResponse parseResponse = await queryUsers.query();
+
+    //Response response = await TodoUtils.getTodoList();
+    // print("Code is ${response.statusCode}");
+    // print("Response is ${response.body}");
+
+    if (parseResponse.statusCode == 200) {
+
+      *//*var body = json.decode(response.body);
+      var results = body["results"];
+
+      for (var todo in results) {
+        todoList.add(Todo.fromJson(todo));
+      }*//*
+
+    } else {
+      //Handle error
+    }
+
+    return todoList;
+  }*/
 
   _SearchResultState();
 

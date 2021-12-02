@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:patient_app/Model/DoctorModel.dart';
 import 'package:patient_app/screens/filter.dart';
 import 'package:patient_app/utils/constants.dart';
@@ -7,7 +8,12 @@ import 'package:patient_app/widgets/doctor_card.dart';
 import 'package:flutter/material.dart';
 
 class Categories extends StatefulWidget {
-  const Categories({Key? key}) : super(key: key);
+  String type;
+
+  Categories(this.type);
+
+ // const Categories({Key? key}) : super(key: key);
+
 
   @override
   _CategoriesState createState() => _CategoriesState();
@@ -114,29 +120,97 @@ class _CategoriesState extends State<Categories> {
                 SizedBox(
                   height: 12,
                 ),
-                Row(
-                  children: [
-                    Expanded(flex: 2,
-                      child: Card(
-                        child: Padding(
-                          padding: EdgeInsets.all(10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text("Anxiety", style: TextStyle(
-                                  fontSize: 12,
-                                  color: COLOR_GREY
-                              ),),
-                              Icon(Icons.close, size: 10,)
-                            ],
-                          ),
-                        ),
-                      ),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Card(
+                    child: Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Text(widget.type, style: TextStyle(
+                          fontSize: 12,
+                          color: COLOR_GREY
+                      ),),
                     ),
-                    Expanded(flex:7,child: SizedBox(width: 40,))
-                  ],
+                  ),
                 ),
+
                 Expanded(
+                  flex : 83,
+                  child: FutureBuilder<List<ParseObject>>(
+                    future: getDoctor(),
+                    builder: (BuildContext context, AsyncSnapshot<List<ParseObject>> snapshot){
+                      if (snapshot.hasError) {
+                        return  Column(
+                          children: [
+                            SizedBox(height : size.height*0.3),
+                            const Center(child: Text('Something Went Wrong',style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black54,
+                                fontWeight: FontWeight.w600
+                            ),)),
+                          ],
+                        );
+                      }
+
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Column(
+                          children: [
+                            SizedBox(height : size.height*0.3),
+                            Center(child: CircularProgressIndicator(
+                              valueColor: new AlwaysStoppedAnimation<Color>(primary),
+                            ),),
+                          ],
+                        );
+                      }
+
+                      if(snapshot.data!.isEmpty)
+                      {
+                        return Column(
+                          children: [
+                            SizedBox(height : size.height*0.3),
+                            const Center(child: Text('No Doctors',style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black54,
+                                fontWeight: FontWeight.w600
+                            ),)),
+                          ],
+                        );
+
+
+                      }
+
+                      return ListView.builder(
+                          physics: BouncingScrollPhysics(),
+                          padding: EdgeInsets.all(0),
+                          shrinkWrap: true,
+                          itemCount: snapshot.data!.length,
+                          itemBuilder: (BuildContext context,int index){
+                            final data = snapshot.data![index];
+
+                            print(data.objectId.toString());
+                            print(data.get<String>("name").toString());
+                            print(data.get("rating"));
+
+
+                            DoctorModel model= DoctorModel(data.objectId.toString(),
+                                data.get<String>("name").toString(),
+                                data.get<String>("profile").toString(),
+                                data.get<String>("speciality").toString(),
+                                data.get("sessionFees"),
+                                data.get<String>("description").toString(),
+                                data.get<String>("availibility").toString(),
+                                data.get<String>("location").toString(),
+                                data.get("rating"));
+                            return DoctorCard(model);
+                          }
+
+                      );
+                    },
+                  ),
+
+                ),
+
+
+                /*          Expanded(
                   flex : 83,
                   child: FutureBuilder<QuerySnapshot>(
                     future: FirebaseFirestore.instance.collection('doctor').get(),
@@ -194,12 +268,23 @@ class _CategoriesState extends State<Categories> {
                     },
                   ),
 
-                ),
+                ),*/
 
               ],
             ),
           )
       ),
     );
+  }
+  Future<List<ParseObject>> getDoctor() async {
+    QueryBuilder<ParseObject> queryTodo =
+    QueryBuilder<ParseObject>(ParseObject('DoctorData'))..whereEqualTo('speciality', widget.type);
+    final ParseResponse apiResponse = await queryTodo.query();
+
+    if (apiResponse.success && apiResponse.results != null) {
+      return apiResponse.results as List<ParseObject>;
+    } else {
+      return [];
+    }
   }
 }

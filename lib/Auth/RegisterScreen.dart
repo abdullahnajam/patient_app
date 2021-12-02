@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:patient_app/Model/UserModel.dart';
 import 'package:patient_app/Navigator/BottomNav.dart';
 import 'package:toast/toast.dart';
@@ -28,7 +29,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
-  TextEditingController fullName = TextEditingController();
+  TextEditingController userName = TextEditingController();
+  //TextEditingController fullName = TextEditingController();
   var number;
 
   bool _obscureText = true;
@@ -45,10 +47,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     });
   }
 
-  @override
-  void initState() {
-    super.initState();
-  }
+
 
   @override
   void dispose() {
@@ -88,7 +87,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   height: 16,
                 ),
                 TextFormField(
-                  controller: fullName,
+                  controller: userName,
                   style: TextStyle(color: COLOR_GREY,  fontSize: 14),
                   cursorColor: COLOR_GREY,
                   decoration: InputDecoration(
@@ -245,12 +244,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   child: RaisedButton(
                     onPressed: () {
 
-                      if(_formKey.currentState!.validate())
+                      /*if(_formKey.currentState!.validate())
                       {
                         //print("number is :  $number");
 
-                        signUp();
-                      }
+                      }*/
+
+                      signUp();
+
                     },
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
                     padding: EdgeInsets.all(0.0),
@@ -361,12 +362,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
 
-  final CollectionReference userDetails =
-  FirebaseFirestore.instance.collection('users');
 
 
 
 
+
+/*
   Future<void> signUp()async {
     final ProgressDialog pr = ProgressDialog(context);
     pr.style(
@@ -419,8 +420,70 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
 
   }
+*/
 
 
+
+
+
+
+
+  Future<void> signUp()async{
+    final ProgressDialog pr = ProgressDialog(context);
+    pr.style(
+      message: 'Please Wait...',
+      progressWidget: CircularProgressIndicator(
+        valueColor: new AlwaysStoppedAnimation<Color>(primary),
+      ),
+    );
+    pr.show();
+    print("1");
+      final username = userName.text.trim();
+      final emailT = email.text.trim();
+      final passwordT = password.text.trim();
+    print("2");
+
+    final user =   ParseUser.createUser( emailT,passwordT);
+    print("3");
+    var response = await user.signUp(allowWithoutEmail: true);
+    print("4");
+
+    if (response.success) {
+      savingUserData(user.objectId);
+      pr.hide();
+
+    } else {
+      pr.hide();
+
+      Toast.show("${response.error!.message}", context, duration: Toast.LENGTH_LONG, gravity:  Toast.TOP , textColor: primary , backgroundColor: Colors.white);
+    }
+  }
+
+
+
+  Future<void> savingUserData(String? objectId) async {
+    var parseObject = ParseObject("userData")
+      ..set("email", email.text.trim())
+      ..set("fullName", userName.text.trim())
+      ..set("phoneNo", number)
+      ..set("type", 'patient')
+      ..set('userObjectId', objectId)
+      ..set("gender" , _gender == gender.male ? "male" : "female");
+
+    final ParseResponse parseResponse = await parseObject.save();
+
+    if (parseResponse.success) {
+      var objectIds = (parseResponse.results!.first as ParseObject).objectId!;
+      UserModel model = UserModel(objectIds,userName.text.trim().toString(),email.text.trim().toString(),number.toString(), _gender == gender.male ? "male" : "female",'patient',objectId!);
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => MainScreen(model)));
+
+     // Toast.show("Registered", context, duration: Toast.LENGTH_LONG, gravity:  Toast.TOP , textColor: primary , backgroundColor: Colors.white);
+
+    } else {
+      Toast.show('Object created with failed: ${parseResponse.error.toString()}', context, duration: Toast.LENGTH_LONG, gravity:  Toast.TOP , textColor: primary , backgroundColor: Colors.white);
+
+    }
+  }
 
 
 

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:patient_app/Auth/LoginScreen.dart';
 import 'package:patient_app/Model/UserModel.dart';
 import 'package:patient_app/screens/MenuScreen.dart';
 import 'package:patient_app/utils/constants.dart';
 
-import 'ForgotPasswordSentScreen.dart';
 
 
 
@@ -93,55 +91,12 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               SizedBox(
                 height: 46,
               ),
-              Text('Please enter new password', style: TextStyle(
-                    fontSize: 14, color: COLOR_GREY
-                )
-              ),
-              SizedBox(
-                height: 12,
-              ),
-              TextField(
-                obscureText: _obscureText,
-                style: TextStyle(color: COLOR_GREY, fontSize: 14),
-                cursorColor: COLOR_GREY,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.vpn_key_rounded),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  filled: true,
-                  hintStyle: TextStyle(color: COLOR_GREY,  fontSize: 14),
-                  hintText: "New Password",
-                  fillColor: Colors.white70,
-                  suffixIcon: IconButton(
-                      icon: Icon(_iconVisible, color: COLOR_GREY, size: 20),
-                      onPressed: () {
-                        _toggleObscureText();
-                      }),
-                ),
-              ),
-              SizedBox(
-                height: 12,
-              ),
-              TextField(
-                obscureText: _obscureText,
-                style: TextStyle(color: COLOR_GREY, fontSize: 14),
-                cursorColor: COLOR_GREY,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.vpn_key_rounded),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  filled: true,
-                  hintStyle: TextStyle(color: COLOR_GREY,  fontSize: 14),
-                  hintText: "Re-entered Password",
-                  fillColor: Colors.white70,
-                  suffixIcon: IconButton(
-                      icon: Icon(_iconVisible, color: COLOR_GREY, size: 20),
-                      onPressed: () {
-                        _toggleObscureText();
-                      }),
-                ),
+
+              Center(
+                child: Text("Password Reset Instruction Will be Sent to ${widget.model.email.toString()}", style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.black,
+                ),),
               ),
 
               SizedBox(
@@ -151,7 +106,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                 height: 50.0,
                 child: RaisedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MenuScreen(widget.model)));
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => MenuScreen(widget.model)));
 
                   },
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
@@ -169,7 +124,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       constraints: BoxConstraints( minHeight: 50.0),
                       alignment: Alignment.center,
                       child: Text(
-                        "Save",
+                        "Reset Password",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Colors.white
@@ -188,4 +143,19 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
         )
     );
   }
+
+/*  void doUserResetPassword() async {
+    final ParseUser user = ParseUser(null, null, widget.model.email);
+    final ParseResponse parseResponse = await user.requestPasswordReset();
+    if (parseResponse.success) {
+      Message.showSuccess(
+          context: context,
+          message: 'Password reset instructions have been sent to email!',
+          onPressed: () {
+            Navigator.of(context).pop();
+          });
+    } else {
+      Message.showError(context: context, message: parseResponse.error!.message);
+    }
+  }*/
 }

@@ -4,6 +4,7 @@ import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:patient_app/Model/DoctorModel.dart';
 import 'package:patient_app/screens/home_page.dart';
 import 'package:patient_app/utils/constants.dart';
@@ -40,13 +41,7 @@ class _BookAppointmentState extends State<BookAppointment> {
     "6:00 Pm",
     "7:00 Pm",
   ];
-  final FirebaseAuth auth = FirebaseAuth.instance;
-  String getUid() {
-    final User? user = auth.currentUser;
-    final uid = user!.uid;
-    return uid;
-    // here you write the codes to input the data into firestore
-  }
+
 
   @override
   void initState() {
@@ -253,8 +248,7 @@ class _BookAppointmentState extends State<BookAppointment> {
                   ),
                   InkWell(
                     onTap: () {
-                      reserveBooking();
-
+                      savingUserData();
                     },
                     child: Container(
                       height: 50,
@@ -286,8 +280,78 @@ class _BookAppointmentState extends State<BookAppointment> {
   }
 
 
-  final CollectionReference reservationDetail =
-  FirebaseFirestore.instance.collection('reservation');
+
+  Future<void> savingUserData() async {
+    ParseUser currentUser = await ParseUser.currentUser() as ParseUser;
+
+    var parseObject = ParseObject("reservation")
+    /*
+    * 'userId': getUid(), // 42
+       'date': _selectedData,
+       'time': items[selectedIndex],
+       'doctorId': widget.model.id,
+       'doctorName': widget.model.name,
+       'doctorProfile': widget.model.profile,
+       'doctorSpeciality': widget.model.speciality,
+       'sessionPrice':  widget.sessionPrice,
+       'sessionHours': widget.sessionHours,
+       'status': "pending",*/
+
+      ..set("userId", currentUser.objectId.toString())
+      ..set("date", _selectedData)
+      ..set("time", items[selectedIndex])
+      ..set("doctorId", widget.model.id)
+      ..set('doctorName', widget.model.name)
+      ..set('doctorProfile', widget.model.profile)
+      ..set('doctorSpeciality', widget.model.speciality)
+      ..set('sessionPrice', widget.sessionPrice)
+      ..set('sessionHours', widget.sessionHours)
+      ..set("status" , "pending");
+
+    final ParseResponse parseResponse = await parseObject.save();
+
+    if (parseResponse.success) {
+      //var objectIds = (parseResponse.results!.first as ParseObject).objectId!;
+      // Toast.show("Booked", context, duration: Toast.LENGTH_LONG, gravity:  Toast.BOTTOM , textColor: primary , backgroundColor: Colors.white);
+
+      showDialog<void>(
+        context: context,
+        barrierDismissible: false, // user must tap button!
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text("Appointment Booked"),
+            content: SingleChildScrollView(
+              child: ListBody(
+                children: const <Widget>[
+                  Text('Your Appointment has been successfully booked'),
+                ],
+              ),
+            ),
+            actions: <Widget>[
+              TextButton(
+                child: const Text('OK'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  Navigator.of(context).pop();
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+
+
+      // Toast.show("Registered", context, duration: Toast.LENGTH_LONG, gravity:  Toast.TOP , textColor: primary , backgroundColor: Colors.white);
+
+    } else {
+      Toast.show('Object created with failed: ${parseResponse.error.toString()}', context, duration: Toast.LENGTH_LONG, gravity:  Toast.TOP , textColor: primary , backgroundColor: Colors.white);
+
+    }
+  }
+
+
+/*
    Future<void> reserveBooking()async {
      reservationDetail.doc().set({
        'userId': getUid(), // 42
@@ -306,5 +370,9 @@ class _BookAppointmentState extends State<BookAppointment> {
        Navigator.pop(context);
      }).catchError((error) => print("Failed to add user: $error"));
     }
+*/
+
+
+
 
 }

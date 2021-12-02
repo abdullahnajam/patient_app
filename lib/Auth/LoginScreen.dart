@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:patient_app/Model/UserModel.dart';
 import 'package:patient_app/utils/constants.dart';
 import 'package:progress_dialog/progress_dialog.dart';
@@ -157,7 +158,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     onPressed: () {
                       if(_formKey.currentState!.validate())
                         {
-                          signIn();
+                            signIn();
                         }
                     },
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
@@ -268,7 +269,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Future<void> signIn ()async
+/*  Future<void> signIn ()async
   {
     final ProgressDialog pr = ProgressDialog(context);
     pr.style(
@@ -317,7 +318,69 @@ class _LoginScreenState extends State<LoginScreen> {
         Toast.show("${e.code}", context, duration: Toast.LENGTH_LONG, gravity:  Toast.TOP , textColor: primary , backgroundColor: Colors.white);
       }
     }
+  } */
+
+  Future<void> signIn ()async
+  {
+    final ProgressDialog pr = ProgressDialog(context);
+    pr.style(
+      message: 'Please Wait...',
+      progressWidget: CircularProgressIndicator(
+        valueColor: new AlwaysStoppedAnimation<Color>(primary),
+      ),
+    );
+
+    pr.show();
+    final username = email.text.trim();
+    final passwordT = password.text.trim();
+
+    final user = ParseUser(username, passwordT, null);
+
+    var response = await user.login();
+
+    if (response.success) {
+     // Toast.show("logged In", context, duration: Toast.LENGTH_LONG, gravity:  Toast.TOP , textColor: primary , backgroundColor: Colors.white);
+
+      readData(user.objectId);
+      pr.hide();
+
+
+      // Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MainScreen()));
+
+    } else {
+      pr.hide();
+
+      Toast.show("${response.error!.message}", context, duration: Toast.LENGTH_LONG, gravity:  Toast.TOP , textColor: primary , backgroundColor: Colors.white);
+    }
+
   }
+
+  Future<void> readData(String? objectId)async{
+    if (objectId!.isEmpty) {
+      //showMessage('None objectId. Click button Save Date before.');
+      return;
+    }
+
+    QueryBuilder<ParseObject> queryUsers =
+    QueryBuilder<ParseObject>(ParseObject('userData'))
+      ..whereEqualTo('userObjectId', objectId);
+    final ParseResponse parseResponse = await queryUsers.query();
+    if (parseResponse.success && parseResponse.results != null) {
+      final object = (parseResponse.results!.first) as ParseObject;
+      UserModel model = UserModel(object.get<String>('objectId').toString(),object.get<String>('fullName').toString(),object.get<String>('email').toString(),object.get<String>('phoneNo').toString(),object.get<String>('gender').toString() ,object.get<String>('type').toString(),object.get<String>('userObjectId').toString());
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => MainScreen(model)));
+
+      print('stringField: ${object.get<String>('userObjectId')}');
+      print('stringField: ${object.get<String>('fullName')}');
+      print('doubleField: ${object.get<String>('email')}');
+      print('doubleField: ${object.get<String>('phoneNo')}');
+      print('doubleField: ${object.get<String>('type')}');
+      print('doubleField: ${object.get<String>('gender')}');
+      print('doubleField: ${object.get<String>('objectId')}');
+
+    }
+  }
+
 
 
 }

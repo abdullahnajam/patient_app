@@ -6,7 +6,7 @@ class DoctorModel{
   var  rating ,sessionFees;
 
 
-  DoctorModel.fromMap(Map<String,dynamic> map,String key)
+/*  DoctorModel.fromMap(Map<String,dynamic> map,String key)
       : id=key,
         name = map['name'],
         profile = map['profile'],
@@ -15,7 +15,7 @@ class DoctorModel{
         availibility = map['availibility'],
         location = map['location'],
         rating = map['rating'],
-        description = map['description'];
+        description = map['description'];*/
 
 
   DoctorModel(
@@ -29,6 +29,6 @@ class DoctorModel{
       this.location,
       this.rating);
 
-  DoctorModel.fromSnapshot(DocumentSnapshot snapshot )
-      : this.fromMap(snapshot.data() as Map<String, dynamic>,snapshot.reference.id);
+/*  DoctorModel.fromSnapshot(DocumentSnapshot snapshot )
+      : this.fromMap(snapshot.data() as Map<String, dynamic>,snapshot.reference.id);*/
 }

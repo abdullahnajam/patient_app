@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:patient_app/Model/UserModel.dart';
+import 'package:patient_app/Navigator/BottomNav.dart';
 import 'package:patient_app/screens/MenuScreen.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:toast/toast.dart';
@@ -453,10 +455,49 @@ class _EditProfileState extends State<EditProfile> {
       ),
     );
   }
-  final CollectionReference userDetails =
-  FirebaseFirestore.instance.collection('users');
+  Future<void> editProfile() async {
+    ParseUser currentUser = await ParseUser.currentUser() as ParseUser;
 
-  void editProfile()async
+    final ProgressDialog pr = ProgressDialog(context);
+    pr.style(
+      message: 'Please Wait...',
+      progressWidget: CircularProgressIndicator(
+        valueColor: new AlwaysStoppedAnimation<Color>(primary),
+      ),
+    );
+    pr.show();
+    var todo = ParseObject('userData')
+      ..objectId = widget.model.objectId
+      ..set("email", email.text.trim())
+      ..set("fullName", name.text.trim())
+      ..set("phoneNo", number.text.trim())
+      ..set("type", 'patient')
+      ..set('userObjectId', widget.model.userObjectId)
+      ..set("gender" , _gender == gender.male ? "male" : "female");
+    await todo.save();
+
+    final ParseResponse parseResponse = await todo.save();
+
+    if (parseResponse.success) {
+      pr.hide();
+      //var objectIds = (parseResponse.results!.first as ParseObject).objectId!;
+      setState(() {
+
+
+      });
+      UserModel model = UserModel(todo.objectId.toString(),name.text.trim().toString(),email.text.trim().toString(),number.text.trim().toString(), _gender == gender.male ? "male" : "female",'patient',widget.model.userObjectId);
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => MainScreen(model)));
+
+      // Toast.show("Registered", context, duration: Toast.LENGTH_LONG, gravity:  Toast.TOP , textColor: primary , backgroundColor: Colors.white);
+
+    } else {
+      pr.hide();
+      Toast.show('Object created with failed: ${parseResponse.error.toString()}', context, duration: Toast.LENGTH_LONG, gravity:  Toast.TOP , textColor: primary , backgroundColor: Colors.white);
+
+    }
+  }
+
+/*  void editProfile()async
   {
     final ProgressDialog pr = ProgressDialog(context);
     pr.style(
@@ -493,7 +534,7 @@ class _EditProfileState extends State<EditProfile> {
 
     });
 
- }
+ }*/
 
 
 
